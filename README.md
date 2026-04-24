@@ -37,20 +37,6 @@ The layout emphasizes full-width usage to improve readability and visual balance
 
 ---
 
-## Project Structure
-
-├── public/
-│   └── assets/        # Images, icons, resume
-├── src/
-│   ├── App.jsx        # Main UI layout and sections
-│   ├── main.jsx       # React entry point
-│   └── styles.css     # Global styling
-├── index.html         # Root HTML file
-├── vite.config.js     # Vite configuration
-└── README.md
-
----
-
 ## Installation
 
 Install dependencies:
