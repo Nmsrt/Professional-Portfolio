@@ -100,7 +100,7 @@ const personalProjects = [
     meta: 'HTML · CSS · JavaScript',
     summary:
       'Minimal portfolio website used to showcase my background, projects, and contact information.',
-    link: '#home',
+    link: 'https://github.com/Nmsrt/Professional-Portfolio',
     image: '/assets/projects/Personal-Website Preview.png'
   },
   {
@@ -108,7 +108,7 @@ const personalProjects = [
     meta: 'Python · Tkinter · SQLite',
     summary:
       'Cashier app with stock tracking, receipt history, transaction logs, and admin-protected management features.',
-    link: '#projects',
+    link: 'https://github.com/Nmsrt/ALN_Auto_Supply_POS_App',
     image: '/assets/projects/POS Preview.png'
   },
   {
@@ -116,7 +116,7 @@ const personalProjects = [
     meta: 'React · Express · SQLite',
     summary:
       'Remote band cover workflow app for tracking roles, stems, video takes, mix drafts, reference tracks, song sections, members, and feedback.',
-    link: '#projects',
+    link: 'https://github.com/Nmsrt/Real-Time-Collaborative-Remote-Band-Cover-Production-Manage',
     image: '/assets/projects/CoverFlow Preview.png'
   },
   {
