@@ -1,4 +1,4 @@
-# Neo Portfolio – React + Vite
+# Neo Website Portfolio 
 
 A modern, responsive personal portfolio website built with React and Vite. This project is designed to showcase projects, technical skills, and professional experience using a clean and wide layout.
 
