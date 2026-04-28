@@ -1,0 +1,29 @@
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  width: 100%;
+  padding: 28px 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-name {
+  font-weight: 800;
+}
+
+.footer-links a {
+  color: #dcdcdc;
+}
+
+.footer-copy {
+  color: #8c8c8c;
+  justify-self: end;
+}

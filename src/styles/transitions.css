@@ -1,0 +1,146 @@
+/* =========================
+   MOTION / TRANSITIONS
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+/* Page entrance */
+.hero-copy,
+.hero-visual,
+.section-header,
+.experience-card,
+.tech-clean-card,
+.featured-card,
+.project-card,
+.contact-copy,
+.contact-card {
+  animation: fadeUp 0.75s ease both;
+}
+
+/* Staggered delays */
+.hero-visual {
+  animation-delay: 0.15s;
+}
+
+.experience-card:nth-child(1),
+.tech-clean-card:nth-child(1),
+.project-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.experience-card:nth-child(2),
+.tech-clean-card:nth-child(2),
+.project-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.experience-card:nth-child(3),
+.tech-clean-card:nth-child(3),
+.project-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+/* Hero movement */
+.hero-portrait-card {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+.hero-orb-1,
+.hero-orb-2,
+.hero-spotlight {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* Smoother hover motion */
+.card,
+.project-card,
+.experience-card,
+.tech-clean-card,
+.featured-card,
+.contact-card,
+.btn,
+.topbar-cta,
+.social-pill,
+.contact-method {
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.experience-card:hover,
+.tech-clean-card:hover,
+.project-card:hover,
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(184, 255, 87, 0.32);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.featured-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(184, 255, 87, 0.28);
+}
+
+.featured-media img {
+  transition: transform 0.45s ease;
+}
+
+.featured-card:hover .featured-media img {
+  transform: scale(1.04);
+}
+
+/* Button polish */
+.btn:hover,
+.topbar-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(184, 255, 87, 0.18);
+}
+
+/* Scroll arrow movement */
+.scroll-arrow-minimal {
+  animation: floatSoft 2.2s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+

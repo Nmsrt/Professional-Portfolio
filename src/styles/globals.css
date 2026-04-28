@@ -1,0 +1,145 @@
+:root {
+  --bg: #050505;
+  --panel: #0a0a0a;
+  --panel-soft: rgba(255, 255, 255, 0.02);
+  --text: #f5f7f2;
+  --muted: #a5ac9f;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #b8ff57;
+  --accent-strong: #ddffb6;
+  --radius-xl: 34px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --wide-max: 1680px;
+  --content-pad: clamp(24px, 3vw, 48px);
+}
+
+/* =========================
+   RESET / BASE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+ font-family: 'VT323', monospace;
+  background: #000;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* =========================
+   LAYOUT / GLOBAL
+========================= */
+
+.site-shell {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.wide-shell {
+  width: min(100%, var(--wide-max));
+  margin: 0 auto;
+  padding-inline: var(--content-pad);
+}
+
+.section {
+  width: 100%;
+  padding: 88px 0;
+}
+
+.section-header {
+  margin-bottom: 34px;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-header.left-tight {
+  margin-bottom: 20px;
+}
+
+.section-header-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 560px);
+  gap: 24px;
+  align-items: end;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.section-header p,
+.featured-content p,
+.project-card p,
+.contact-copy p,
+.contact-note,
+.tech-panel-head p {
+  color: #b8bdb2;
+  line-height: 1.75;
+}
+
+.eyebrow,
+.project-meta,
+.contact-role,
+.contact-method-label,
+.footer-meta,
+.hero-tech-label {
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+}

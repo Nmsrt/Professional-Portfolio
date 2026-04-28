@@ -1,0 +1,50 @@
+/* =========================
+   SHARED CARDS / PANELS
+========================= */
+
+.card,
+.featured-card,
+.project-card,
+.contact-card,
+.tech-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.project-columns,
+.tech-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.project-card,
+.contact-card,
+.tech-panel {
+  padding: 26px;
+}
+
+.column-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.featured-content h3,
+.project-card h4,
+.tech-panel h3,
+.contact-card h3,
+.column-head h3 {
+  margin: 0;
+}
+
+.featured-content h3 {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.chip-row-bottom {
+  margin-top: auto;
+  padding-top: 18px;
+}

@@ -1,0 +1,158 @@
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1280px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 120px;
+  }
+
+  .hero-copy-left {
+    max-width: none;
+  }
+
+  .hero-visual {
+    min-height: 560px;
+  }
+
+  .hero-portrait-card {
+    width: min(100%, 620px);
+    height: 620px;
+  }
+
+  .hero-visual-ring-1 {
+    width: 520px;
+    height: 520px;
+  }
+
+  .hero-visual-ring-2 {
+    width: 660px;
+    height: 660px;
+  }
+
+  .tech-layout,
+  .project-columns,
+  .contact-layout,
+  .section-header-split,
+  .footer-inner,
+  .featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-copy {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .timeline-item {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .timeline-content {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .timeline-year {
+    text-align: left;
+    margin-top: 6px;
+  }
+
+  .topbar-nav,
+  .topbar-cta {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    padding-bottom: 92px;
+  }
+
+  .hero-title-main {
+    font-size: clamp(3.2rem, 12vw, 5.2rem);
+  }
+
+  .hero-title-sub {
+    font-size: clamp(2.6rem, 10vw, 4.5rem);
+  }
+
+  .hero-role {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    min-height: 440px;
+  }
+
+  .hero-portrait-card {
+    width: min(100%, 460px);
+    height: 480px;
+  }
+
+  .hero-visual-ring-1 {
+    width: 380px;
+    height: 380px;
+  }
+
+  .hero-visual-ring-2 {
+    width: 500px;
+    height: 500px;
+  }
+
+  .featured-media {
+    min-height: 320px;
+  }
+
+  .contact-method {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --content-pad: 18px;
+  }
+
+  .topbar {
+    padding: 14px 16px;
+  }
+
+  .brand-text span {
+    display: none;
+  }
+
+  .hero-actions,
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .topbar-cta,
+  .mobile-cta {
+    width: 100%;
+  }
+
+  .hero-tech-icons,
+  .chip-row,
+  .footer-links,
+  .social-grid {
+    gap: 10px;
+  }
+
+  .tech-clean-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
