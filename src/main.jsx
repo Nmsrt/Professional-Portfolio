@@ -7,6 +7,7 @@ import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/experience.css';
 import './styles/tech.css';
+import './styles/certifications.css';
 import './styles/projects.css';
 import './styles/contact.css';
 import './styles/footer.css';

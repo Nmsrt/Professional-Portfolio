@@ -1,4 +1,4 @@
-function Hero() {
+function Hero({ resumeOpen, setResumeOpen }) {
   return (
      <section id="home" className="hero-section">
           <div className="hero-frame">
@@ -26,10 +26,35 @@ function Hero() {
                 </p>
 
                 <div className="hero-actions hero-actions-acid">
-                  <a href="/assets/AntonioMonserrat_CV.pdf" download className="btn btn-accent btn-lg">
-                    <span>↓</span>
-                    Download Resume
-                  </a>
+                  <div className="resume-dropdown">
+                    <button
+                      type="button"
+                      className="btn btn-accent btn-lg resume-btn"
+                      onClick={() => setResumeOpen(!resumeOpen)}
+                    >
+                      <span>↓</span>
+                      Download Resume
+                      <span className={`resume-chevron ${resumeOpen ? 'open' : ''}`} />
+                    </button>
+
+                    <div className={`resume-menu ${resumeOpen ? 'show' : ''}`}>
+                      <a
+                        href="/assets/AntonioMonserrat_ATS_CV.pdf"
+                        download
+                        onClick={() => setResumeOpen(false)}
+                      >
+                        ATS Version
+                      </a>
+
+                      <a
+                        href="/assets/AntonioMonserrat_CV.pdf"
+                        download
+                        onClick={() => setResumeOpen(false)}
+                      >
+                        Designed Version
+                      </a>
+                    </div>
+                  </div>
 
                   <a href="#projects" className="btn btn-ghost-accent btn-lg">
                     View Projects

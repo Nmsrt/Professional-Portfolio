@@ -6,24 +6,27 @@ import {
   academicProjects,
   personalProjects,
   contactMethods,
-  socials
+  socials,
+  certifications
 } from './data/data';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import TechStack from './components/TechStack';
+import Certifications from './components/Certifications';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const year = useMemo(() => new Date().getFullYear(), []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'experience', 'tech', 'projects', 'contact'];
+    const sectionIds = ['home', 'experience', 'tech', 'certifications', 'projects', 'contact'];
 
     const onScroll = () => {
       const y = window.scrollY + 180;
@@ -58,6 +61,7 @@ export default function App() {
     ['home', 'Home'],
     ['experience', 'Experience'],
     ['tech', 'Tech'],
+    ['certifications', 'Certifications'],
     ['projects', 'Projects'],
     ['contact', 'Contact']
   ];
@@ -86,9 +90,10 @@ export default function App() {
       />
 
       <main>
-        <Hero />
+        <Hero resumeOpen={resumeOpen} setResumeOpen={setResumeOpen} />
         <Experience />
         <TechStack />
+        <Certifications />
         <Projects />
         <Contact />
       </main>

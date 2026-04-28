@@ -143,3 +143,16 @@ export const socials = [
   { name: 'TikTok', href: 'https://www.tiktok.com/@neomessi1001' },
   { name: 'Discord', href: 'https://discordapp.com/users/700708612447666216' }
 ];
+
+export const certifications = [
+  {
+    title: 'Agile Testing Certification',
+    issuer: 'QE 360 Awards',
+    date: '2025',
+    description:
+      'Completed and passed Agile Testing Certification focused on QA workflows, testing principles, and agile software delivery.',
+    skills: ['QA Testing', 'Agile', 'Software QA'],
+    image: '/assets/agile-testing.png',
+    link: '/assets/QE360_AGILE-TESTER-CERTIFICATE.pdf'
+  }
+];

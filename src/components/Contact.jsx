@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { contactMethods, socials } from '../data/data';
 
 function Contact() {
+  const [cvOpen, setCvOpen] = useState(false);
   return (
 <section id="contact" className="section">
           <div className="wide-shell">
@@ -24,9 +26,34 @@ function Contact() {
                   <a href="mailto:neo.monserrat@gmail.com" className="btn btn-primary">
                     Email Me
                   </a>
-                  <a href="/assets/AntonioMonserrat_CV.pdf" download className="btn btn-secondary">
-                    Download CV
-                  </a>
+                  <div className="resume-dropdown contact-dropdown">
+                    <button
+                      type="button"
+                      className="btn btn-secondary resume-btn"
+                      onClick={() => setCvOpen(!cvOpen)}
+                    >
+                      Download CV
+                      <span className={`resume-chevron ${cvOpen ? 'open' : ''}`} />
+                    </button>
+
+                    <div className={`resume-menu ${cvOpen ? 'show' : ''}`}>
+                      <a
+                        href="/assets/AntonioMonserrat_ATS_CV.pdf"
+                        download
+                        onClick={() => setCvOpen(false)}
+                      >
+                        ATS Version
+                      </a>
+
+                      <a
+                        href="/assets/AntonioMonserrat_CV.pdf"
+                        download
+                        onClick={() => setCvOpen(false)}
+                      >
+                        Designed Version
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <p className="contact-note">

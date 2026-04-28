@@ -263,3 +263,57 @@
   color: rgba(255, 255, 255, 0.68);
   backdrop-filter: blur(10px);
 }
+
+.resume-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.resume-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(8,8,8,.98);
+  border: 1px solid rgba(184,255,87,.22);
+  border-top: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all .18s ease;
+  z-index: 20;
+}
+
+.resume-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.resume-menu a {
+  display: block;
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
+.resume-menu a:hover {
+  background: rgba(184,255,87,.08);
+  color: var(--accent);
+}
+
+.resume-chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #0a0a0a;
+  border-bottom: 2px solid #0a0a0a;
+  transform: rotate(45deg);
+  transition: .2s ease;
+  margin-left: 6px;
+  margin-top: -3px;
+}
+
+.resume-chevron.open {
+  transform: rotate(225deg);
+  margin-top: 2px;
+}
