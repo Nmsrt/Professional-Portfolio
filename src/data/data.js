@@ -93,11 +93,19 @@ export const academicProjects = [
 
 export const personalProjects = [
   {
-    title: 'Personal Portfolio Website',
-    meta: 'HTML · CSS · JavaScript',
+    title: 'Portfolio Website',
+    meta: 'React · HTML · CSS · JavaScript',
     summary:
       'Minimal portfolio website used to showcase my background, projects, and contact information.',
     link: 'https://github.com/Nmsrt/Professional-Portfolio',
+    image: '/assets/projects/Personal-Portfolio Preview.png'
+  },
+  {
+    title: 'Personal Website',
+    meta: 'HTML · CSS · JavaScript',
+    summary:
+      'Personal website showcasing my background, interests, projects, and contact details.',
+    link: 'https://github.com/Nmsrt/Personal-Website',
     image: '/assets/projects/Personal-Website Preview.png'
   },
   {
