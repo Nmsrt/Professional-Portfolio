@@ -6,7 +6,6 @@ import {
   academicProjects,
   personalProjects,
   contactMethods,
-  socials,
   certifications
 } from './data/data';
 
@@ -23,24 +22,45 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
   const year = useMemo(() => new Date().getFullYear(), []);
 
   useEffect(() => {
-    const sectionIds = ['home', 'experience', 'tech', 'certifications', 'projects', 'contact'];
+    const sectionIds = [
+      'home',
+      'experience',
+      'tech',
+      'certifications',
+      'projects',
+      'contact'
+    ];
 
     const onScroll = () => {
+      const bottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 10;
+
+      if (bottom) {
+        setActiveSection('contact');
+        return;
+      }
+
       const y = window.scrollY + 180;
       let current = 'home';
 
       for (const id of sectionIds) {
         const el = document.getElementById(id);
-        if (el && y >= el.offsetTop) current = id;
+
+        if (el && y >= el.offsetTop) {
+          current = id;
+        }
       }
 
       setActiveSection(current);
     };
 
     onScroll();
+
     window.addEventListener('scroll', onScroll);
     window.addEventListener('resize', onScroll);
 
@@ -52,6 +72,7 @@ export default function App() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -72,7 +93,9 @@ export default function App() {
         <a
           key={id}
           href={`#${id}`}
-          className={`${mobile ? 'mobile-link' : 'topbar-link'} ${activeSection === id ? 'is-active' : ''}`}
+          className={`${mobile ? 'mobile-link' : 'topbar-link'} ${
+            activeSection === id ? 'is-active' : ''
+          }`}
           onClick={() => setMenuOpen(false)}
         >
           {label}
@@ -95,10 +118,10 @@ export default function App() {
         <TechStack />
         <Certifications />
         <Projects />
-        <Contact />
+        <Contact resumeOpen={resumeOpen} setResumeOpen={setResumeOpen} />
       </main>
 
-      <Footer year={year} />      
+      <Footer year={year} />
     </div>
   );
 }

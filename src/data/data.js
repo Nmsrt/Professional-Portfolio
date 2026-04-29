@@ -62,7 +62,8 @@ export const academicProjects = [
     meta: 'Python · scikit-learn · Jupyter Notebook',
     summary:
       'Machine learning project for classifying poverty status of households in the National Capital Region using FIES 2012.',
-    link: 'https://github.com/NeoMonserrat/Household-Poverty-Status-Classification-in-the-National-Capital-Region-Using-FIES-2012',
+    link:
+      'https://github.com/NeoMonserrat/Household-Poverty-Status-Classification-in-the-National-Capital-Region-Using-FIES-2012',
     image: '/assets/projects/FIES Preview.png'
   },
   {
@@ -73,7 +74,7 @@ export const academicProjects = [
     link: 'https://github.com/NeoMonserrat/LPPWDFI',
     image: '/assets/projects/LPPWDFI Preview.png'
   },
- {
+  {
     title: 'Distributed Data Warehouse Reporting with OLAP',
     meta: 'SQL · Node.js · OLAP',
     summary:
@@ -82,13 +83,13 @@ export const academicProjects = [
     image: '/assets/projects/OLAP Preview.png'
   },
   {
-  title: 'Distributed OCR System (TCP-Based)',
-  meta: 'C++ · Qt · TCP Sockets · Multithreading · Tesseract',
-  summary:
-    'Built a distributed OCR system using raw TCP sockets, enabling asynchronous image processing with a multithreaded server and real-time result streaming.',
-  link: 'https://github.com/NeoMonserrat/Distributed-AI-System',
-  image: '/assets/projects/Distributed-AI-System Preview.png'
-},
+    title: 'Distributed OCR System (TCP-Based)',
+    meta: 'C++ · Qt · TCP Sockets · Multithreading · Tesseract',
+    summary:
+      'Built a distributed OCR system using raw TCP sockets, enabling asynchronous image processing with a multithreaded server and real-time result streaming.',
+    link: 'https://github.com/NeoMonserrat/Distributed-AI-System',
+    image: '/assets/projects/Distributed-AI-System Preview.png'
+  }
 ];
 
 export const personalProjects = [
@@ -121,35 +122,40 @@ export const personalProjects = [
     meta: 'React · Express · SQLite',
     summary:
       'Remote band cover workflow app for tracking roles, stems, video takes, mix drafts, reference tracks, song sections, members, and feedback.',
-    link: 'https://github.com/Nmsrt/Real-Time-Collaborative-Remote-Band-Cover-Production-Manage',
+    link:
+      'https://github.com/Nmsrt/Real-Time-Collaborative-Remote-Band-Cover-Production-Manage',
     image: '/assets/projects/CoverFlow Preview.png'
   },
   {
     title: 'More projects coming soon',
     meta: '... · ... · ...',
-    summary:
-      '...',
+    summary: '...',
     link: '#projects',
     image: '/assets/projects/coming-soon.png'
   }
 ];
 
 export const contactMethods = [
-  { label: 'Phone', value: '+63 927 664 6821', href: 'tel:+639276646821' },
-  { label: 'Email', value: 'neo.monserrat@gmail.com', href: 'mailto:neo.monserrat@gmail.com' },
+  {
+    label: 'Phone',
+    value: '+63 927 664 6821',
+    href: 'tel:+639276646821'
+  },
+  {
+    label: 'Email',
+    value: 'neo.monserrat@gmail.com',
+    href: 'mailto:neo.monserrat@gmail.com'
+  },
   {
     label: 'LinkedIn',
     value: 'antonio-enrique-monserrat',
     href: 'https://www.linkedin.com/in/antonio-enrique-monserrat-232ab6328'
   },
-  { label: 'GitHub', value: '@NeoMonserrat', href: 'https://github.com/NeoMonserrat' }
-];
-
-export const socials = [
-  { name: 'Instagram', href: 'https://www.instagram.com/neo.msrt/' },
-  { name: 'Facebook', href: 'https://www.facebook.com/neo.monserrat' },
-  { name: 'TikTok', href: 'https://www.tiktok.com/@neomessi1001' },
-  { name: 'Discord', href: 'https://discordapp.com/users/700708612447666216' }
+  {
+    label: 'GitHub',
+    value: '@NeoMonserrat',
+    href: 'https://github.com/NeoMonserrat'
+  }
 ];
 
 export const certifications = [
