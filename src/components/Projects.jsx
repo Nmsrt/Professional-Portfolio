@@ -2,9 +2,10 @@ import { academicProjects, personalProjects } from '../data/data';
 
 function Projects() {
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section matrix-section animate-on-scroll">
       <div className="wide-shell">
-        <div className="section-header section-header-split">
+        <span className="matrix-section-num">04</span>
+        <div className="section-header center">
           <div>
             <span className="eyebrow">Portfolio</span>
             <h2>Projects</h2>

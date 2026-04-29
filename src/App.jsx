@@ -71,6 +71,27 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const animatedEls = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    animatedEls.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
 
     return () => {

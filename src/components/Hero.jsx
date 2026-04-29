@@ -1,6 +1,6 @@
 function Hero({ resumeOpen, setResumeOpen }) {
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className="hero-section animate-on-scroll">
       <div className="hero-frame">
         <div className="hero-noise" aria-hidden="true" />
         <div className="hero-grid-overlay" aria-hidden="true" />

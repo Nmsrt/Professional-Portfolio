@@ -57,3 +57,19 @@
   font-size: 1rem;
   font-weight: 600;
 }
+
+.tech-clean-header {
+  text-align: center;
+  margin: 0 auto 48px;
+}
+
+.tech-clean-header .eyebrow,
+.tech-clean-header h2,
+.tech-clean-header p {
+  text-align: center;
+}
+
+.tech-clean-header p {
+  max-width: 620px;
+  margin: 0 auto;
+}

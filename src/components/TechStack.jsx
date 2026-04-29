@@ -2,9 +2,10 @@ import { techGroups } from '../data/data';
 
 function TechStack() {
   return (
-    <section id="tech" className="section">
+    <section id="tech" className="section matrix-section animate-on-scroll">
       <div className="wide-shell">
-        <div className="section-header section-header-split">
+        <span className="matrix-section-num">02</span>
+        <div className="section-header center">
           <div>
             <span className="eyebrow">Tools</span>
             <h2>Tech stack</h2>

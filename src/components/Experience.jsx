@@ -2,8 +2,9 @@ import { experienceItems } from '../data/data';
 
 function Experience() {
   return (
-    <section id="experience" className="section experience-section">
+    <section id="experience" className="section matrix-section animate-on-scroll">
       <div className="wide-shell">
+        <span className="matrix-section-num">01</span>
         <div className="experience-heading">
           <span className="eyebrow">Journey</span>
           <h2>My career & experience</h2>

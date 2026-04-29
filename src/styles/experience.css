@@ -119,3 +119,18 @@
 .timeline-item:hover h3 {
   color: var(--accent-strong);
 }
+
+/* tighter title spacing for large showcase sections */
+.experience-heading .eyebrow,
+.certifications-heading .eyebrow,
+.section-header .eyebrow {
+  margin-bottom: 8px;
+}
+
+.experience-heading h2,
+.certifications-heading h2,
+.section-header h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 0.95;
+}

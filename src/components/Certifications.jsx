@@ -2,8 +2,9 @@ import { certifications } from '../data/data';
 
 function Certifications() {
   return (
-    <section id="certifications" className="section certifications-section">
+    <section id="certifications" className="section matrix-section certifications-section animate-on-scroll">
       <div className="wide-shell">
+        <span className="matrix-section-num">03</span>
         <div className="section-header center">
           <span className="eyebrow">Credentials</span>
           <h2>Certifications</h2>

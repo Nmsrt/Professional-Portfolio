@@ -33,7 +33,8 @@ export const techGroups = [
       { name: 'C++', icon: '/assets/icons/cpp.png' },
       { name: 'C#', icon: '/assets/icons/csharp.png' },
       { name: 'Python', icon: '/assets/icons/python.png' },
-      { name: 'JavaScript', icon: '/assets/icons/javascript.png' }
+      { name: 'JavaScript', icon: '/assets/icons/javascript.png' },
+      { name: 'SQL', icon: '/assets/icons/sql.png' }
     ]
   },
   {

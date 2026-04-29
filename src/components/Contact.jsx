@@ -5,7 +5,7 @@ function Contact({ setResumeOpen }) {
   const [cvOpen, setCvOpen] = useState(false);
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section matrix-section animate-on-scroll">
       <div className="wide-shell">
         <div className="contact-layout">
           <div className="contact-copy">
@@ -68,7 +68,13 @@ function Contact({ setResumeOpen }) {
           </div>
 
           <article className="card contact-card">
-            <div className="contact-avatar">NM</div>
+            <div className="contact-avatar">
+              <img
+                src="/assets/profile.png"
+                alt="Neo Monserrat"
+                className="contact-avatar-img"
+              />
+            </div>
 
             <h3>Neo Monserrat</h3>
             <p className="contact-role">College Student</p>
