@@ -14,8 +14,13 @@
   padding-right: 12px;
 }
 
+/* BUTTON SEPARATION */
 .action-row-contact {
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;        /* space between buttons */
+  flex-wrap: wrap;  /* stacks nicely on mobile */
 }
 
 .contact-card {
@@ -73,4 +78,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
 }

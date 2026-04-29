@@ -159,6 +159,13 @@
   color: #c2c8bc;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .hero-actions-acid {
   margin-top: 34px;
   gap: 16px;

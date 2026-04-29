@@ -20,7 +20,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
 
           <div className="topbar-right">
             <a className="topbar-cta" href="#contact">
-              Let&apos;s Talk
+              Let&apos;s Talk <span>→</span>
             </a>
 
             <button
@@ -61,7 +61,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
           </button>
         </div>
 
-        <nav className="mobile-nav">
+        <nav className="mobile-nav" onClick={() => setMenuOpen(false)}>
           <NavLinks mobile />
         </nav>
 
@@ -70,7 +70,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
           href="#contact"
           onClick={() => setMenuOpen(false)}
         >
-          Let&apos;s Talk
+          Let&apos;s Talk →
         </a>
       </aside>
     </>

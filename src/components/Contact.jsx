@@ -24,14 +24,10 @@ function Contact({ setResumeOpen }) {
             </div>
 
             <div className="action-row action-row-contact">
-              <a href="mailto:neo.monserrat@gmail.com" className="btn btn-primary">
-                Email Me
-              </a>
-
               <div className="resume-dropdown contact-dropdown">
                 <button
                   type="button"
-                  className="btn btn-secondary resume-btn"
+                  className="btn btn-primary resume-btn"
                   onClick={() => setCvOpen(!cvOpen)}
                 >
                   Download CV
