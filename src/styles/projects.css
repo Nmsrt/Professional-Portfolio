@@ -141,6 +141,19 @@
   border-color: rgba(176, 255, 85, 0.28);
 }
 
+#projects {
+  position: relative;
+  z-index: 5;
+  isolation: isolate;
+}
+
+#projects,
+#projects * {
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -159,18 +172,55 @@
   }
 }
 
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+    padding-block: 72px;
+  }
+
+  #projects {
+    display: block;
+    min-height: auto;
+  }
+
+  .featured-card,
+  .project-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-media {
+    min-height: 220px;
+  }
+
+  .animate-on-scroll,
+  .animate-on-scroll.is-visible,
+  .card,
+  .featured-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .project-card,
+  .featured-card,
+  .card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: var(--text) !important;
+  }
+
+  .project-card *,
+  .featured-card * {
+    color: inherit;
+  }
+}
+
 @media (max-width: 720px) {
   .featured-content {
     padding: 24px 20px;
   }
 
-  .featured-media {
-    min-height: 260px;
-  }
-
   .project-columns {
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 28px;
   }
 
@@ -202,64 +252,4 @@
   .project-card-body p:last-child {
     display: block;
   }
-}
-
-@media (max-width: 768px) {
-  .section {
-    min-height: auto;
-    padding-block: 72px;
-  }
-
-  #projects {
-    display: block;
-    min-height: auto;
-  }
-
-  .featured-card,
-  .project-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .featured-media {
-    min-height: 220px;
-  }
-}
-
-@media (max-width: 768px) {
-  .animate-on-scroll,
-  .animate-on-scroll.is-visible,
-  .card,
-  .featured-card {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-card,
-  .featured-card,
-  .card {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: var(--text) !important;
-  }
-
-  .project-card *,
-  .featured-card * {
-    color: inherit;
-  }
-}
-
-#projects,
-#projects * {
-  transform: none !important;
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-#projects {
-  position: relative;
-  z-index: 5;
-  isolation: isolate;
 }

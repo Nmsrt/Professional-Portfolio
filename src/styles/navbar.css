@@ -262,3 +262,13 @@
   display: inline-flex;
   font-size: 1.2rem;
 }
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .brand-text {
+    display: none;
+  }
+}
