@@ -166,7 +166,7 @@ select {
 }
 
 .animate-on-scroll {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(34px);
   filter: blur(6px);
   transition:

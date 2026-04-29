@@ -250,3 +250,16 @@
     color: inherit;
   }
 }
+
+#projects,
+#projects * {
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#projects {
+  position: relative;
+  z-index: 5;
+  isolation: isolate;
+}
