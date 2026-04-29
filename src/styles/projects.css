@@ -203,3 +203,27 @@
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  .featured-card {
+    grid-template-columns: 1fr;
+    margin-bottom: 22px;
+  }
+
+  .featured-media {
+    min-height: 220px;
+  }
+
+  .featured-content {
+    padding: 24px;
+  }
+
+  .project-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .column-head {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
