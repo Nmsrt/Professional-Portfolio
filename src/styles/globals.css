@@ -273,7 +273,7 @@ body::after {
   border-bottom: 1px solid;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   html {
     scroll-padding-top: 0;
   }
