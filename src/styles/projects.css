@@ -205,25 +205,22 @@
 }
 
 @media (max-width: 768px) {
-  .featured-card {
-    grid-template-columns: 1fr;
-    margin-bottom: 22px;
+  .section {
+    min-height: auto;
+    padding-block: 72px;
   }
 
-  .featured-media {
-    min-height: 220px;
+  #projects {
+    display: block;
+    min-height: auto;
   }
 
-  .featured-content {
-    padding: 24px;
-  }
-
+  .featured-card,
   .project-columns {
     grid-template-columns: 1fr;
   }
 
-  .column-head {
-    align-items: flex-start;
-    gap: 10px;
+  .featured-media {
+    min-height: 220px;
   }
 }
