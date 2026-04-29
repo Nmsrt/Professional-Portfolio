@@ -224,3 +224,29 @@
     min-height: 220px;
   }
 }
+
+@media (max-width: 768px) {
+  .animate-on-scroll,
+  .animate-on-scroll.is-visible,
+  .card,
+  .featured-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card,
+  .featured-card,
+  .card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: var(--text) !important;
+  }
+
+  .project-card *,
+  .featured-card * {
+    color: inherit;
+  }
+}
