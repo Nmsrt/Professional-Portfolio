@@ -88,8 +88,8 @@ select {
 
 .section {
   width: 100%;
-  min-height: 100vh;
-  padding: 96px 48px;
+  min-height: 100svh;
+  padding-block: clamp(72px, 10vw, 120px);
 }
 
 .section-header {
