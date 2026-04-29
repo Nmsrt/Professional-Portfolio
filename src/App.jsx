@@ -114,9 +114,7 @@ export default function App() {
         <a
           key={id}
           href={`#${id}`}
-          className={`${mobile ? 'mobile-link' : 'topbar-link'} ${
-            activeSection === id ? 'is-active' : ''
-          }`}
+          className={`${mobile ? 'mobile-link' : 'topbar-link'} ${activeSection === id ? 'is-active' : ''}`}
           onClick={() => setMenuOpen(false)}
         >
           {label}
