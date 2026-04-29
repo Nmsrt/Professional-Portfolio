@@ -272,3 +272,13 @@ body::after {
   border-left: 1px solid;
   border-bottom: 1px solid;
 }
+
+@media (max-width: 900px) {
+  html {
+    scroll-padding-top: 0;
+  }
+
+  .section {
+    scroll-margin-top: 0;
+  }
+}
