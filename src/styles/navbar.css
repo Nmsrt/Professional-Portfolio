@@ -302,19 +302,22 @@
 ========================= */
 
 @media (max-width: 768px) {
-  .topbar-shell {
-    position: fixed;
+    .topbar-shell {
+    position: absolute;
     top: 12px;
     left: 0;
     right: 0;
+    width: 100%;
+    padding-inline: 0;
     z-index: 100;
-    padding-inline: 14px;
   }
 
   .topbar {
     width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 12px 16px;
-    border-radius: 22px;
+    border-radius: 0;
   }
 
   .brand {
