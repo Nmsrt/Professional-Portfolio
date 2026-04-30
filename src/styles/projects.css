@@ -261,3 +261,11 @@
   gap: 14px;
   flex-wrap: wrap;
 }
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;   /* controls space between chips */
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
