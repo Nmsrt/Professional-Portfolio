@@ -101,3 +101,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+.certification-card .chip-row {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* increase this */
+}
+
+.certification-card .chip-row {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* increase this */
+}
