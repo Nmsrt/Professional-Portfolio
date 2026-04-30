@@ -253,3 +253,11 @@
     display: block;
   }
 }
+
+.action-row {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
