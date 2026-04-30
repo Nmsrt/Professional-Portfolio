@@ -7,7 +7,7 @@ function Projects() {
         <span className="matrix-section-num">04</span>
         <div className="section-header center">
           <div>
-            <span className="eyebrow">Portfolio</span>
+            {/*<span className="eyebrow">Portfolio</span> */}
             <h2>Projects</h2>
           </div>
         </div>

@@ -282,3 +282,25 @@ body::after {
     scroll-margin-top: 0;
   }
 }
+
+/* Default cursor (optional) */
+
+/* Clickable elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+label,
+summary,
+select,
+.menu-button,
+.close-button,
+.btn,
+.topbar-link,
+.mobile-link,
+.project-card,
+.contact-method,
+.social-pill {
+  cursor: url('/assets/pointer.png') 8 8, pointer;
+}

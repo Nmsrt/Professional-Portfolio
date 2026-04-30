@@ -2,16 +2,21 @@ function Footer({ year }) {
   return (
     <footer className="site-footer">
       <div className="wide-shell footer-inner">
-        <div>
-          <div className="footer-name">Neo Monserrat</div>
-          <div className="footer-meta">
-            BS Computer Science - Major in Software Technology
+        <div className="footer-brand">
+          <div className="brand-avatar">
+            <img src="/assets/Brand.png" alt="Neo" />
+          </div>
+
+          <div>
+            <div className="footer-name">Neo Monserrat</div>
+            <div className="footer-meta">
+              BS Computer Science · Software Technology
+            </div>
           </div>
         </div>
 
-        <div className="footer-links">
+        <nav className="footer-links" aria-label="Footer navigation">
           <a href="tel:+639276646821">Phone</a>
-
           <a href="mailto:neo.monserrat@gmail.com">Email</a>
 
           <a
@@ -29,7 +34,7 @@ function Footer({ year }) {
           >
             GitHub
           </a>
-        </div>
+        </nav>
 
         <div className="footer-copy">© {year}</div>
       </div>

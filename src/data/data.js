@@ -162,8 +162,8 @@ export const contactMethods = [
 export const certifications = [
   {
     title: 'Agile Testing Certification',
-    issuer: 'QE 360 Awards',
-    date: '2025',
+    issuer: 'QE 360',
+    date: 'Oct 2025',
     description:
       'Completed and passed Agile Testing Certification focused on QA workflows, testing principles, and agile software delivery.',
     skills: ['QA Testing', 'Agile', 'Software QA'],

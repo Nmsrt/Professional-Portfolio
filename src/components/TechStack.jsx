@@ -7,7 +7,7 @@ function TechStack() {
         <span className="matrix-section-num">02</span>
         <div className="section-header center">
           <div>
-            <span className="eyebrow">Tools</span>
+            {/* <span className="eyebrow">Tools</span> */}
             <h2>Tech stack</h2>
           </div>
         </div>

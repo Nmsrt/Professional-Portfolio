@@ -6,7 +6,7 @@ function Certifications() {
       <div className="wide-shell">
         <span className="matrix-section-num">03</span>
         <div className="section-header center">
-          <span className="eyebrow">Credentials</span>
+          {/* <span className="eyebrow">Credentials</span> */}
           <h2>Certifications</h2>
         </div>
 
