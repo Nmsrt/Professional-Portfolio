@@ -36,7 +36,7 @@ function Certifications() {
                 target="_blank"
                 rel="noreferrer"
               >
-                View Credential →
+                View Certificate →
               </a>
             </article>
           ))}

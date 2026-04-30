@@ -3,7 +3,7 @@ export const experienceItems = [
     year: '2026',
     title: 'Incoming Software Engineering Intern',
     company: 'VRXE',
-    location: 'Philippines',
+    location: 'Marikina, Philippines',
     text:
       'Preparing to begin my internship and looking forward to contributing to real-world engineering work, learning team workflows, and growing through hands-on experience.'
   },
