@@ -38,13 +38,10 @@ function Hero({ resumeOpen, setResumeOpen }) {
                 </button>
 
                 <div className={`resume-menu ${resumeOpen ? 'show' : ''}`}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setResumeOpen(false);
-                      alert('ATS Version is not yet available.');
-                    }}
+                 <a
+                    href="/assets/AntonioMonserrat_CV_ATS.pdf"
+                    download
+                    onClick={() => setCvOpen(false)}
                   >
                     ATS Version
                   </a>
