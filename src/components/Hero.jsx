@@ -47,7 +47,7 @@ function Hero({ resumeOpen, setResumeOpen }) {
                   </a>
 
                   <a
-                    href="/assets/AntonioMonserrat_CV.pdf"
+                    href="/assets/AntonioMonserrat_CV_Designed.pdf"
                     download
                     onClick={() => setResumeOpen(false)}
                   >
