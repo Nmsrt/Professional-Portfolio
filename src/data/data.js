@@ -128,6 +128,13 @@ export const personalProjects = [
     image: '/assets/projects/CoverFlow Preview.png'
   },
   {
+    title: 'YouTube Audio Downloader',
+    meta: 'Node.js · Express · yt-dlp',
+    summary: 'A local web app for downloading YouTube audio as MP3 or WAV, with auto-filled filenames, editable save location, light/dark mode, and a clean desktop-style interface.',
+    link: 'https://github.com/Nmsrt/Youtube-Audio-Downloader',
+    image: '/assets/projects/Youtube Audio Downloader Preview.png'
+  },
+  {
     title: 'More projects coming soon',
     meta: '... · ... · ...',
     summary: '...',
