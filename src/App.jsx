@@ -125,7 +125,7 @@ export default function App() {
 
   return (
     <div className="site-shell">
-      <Navbar
+      <Navbar activeSection={activeSection}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         NavLinks={NavLinks}

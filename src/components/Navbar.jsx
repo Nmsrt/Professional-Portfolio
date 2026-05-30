@@ -1,13 +1,13 @@
-function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
+function Navbar({ menuOpen, setMenuOpen, NavLinks, activeSection }) {
   return (
     <>
+      {/* ── Desktop topbar (hidden on mobile via CSS) ── */}
       <header className="topbar-shell">
         <div className="topbar">
           <a href="#home" className="brand" aria-label="Neo Monserrat home">
             <div className="brand-avatar">
               <img src="/assets/Brand.png" alt="Neo" />
             </div>
-
             <div className="brand-text">
               <strong>Neo</strong>
               <span>Portfolio</span>
@@ -38,6 +38,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
         </div>
       </header>
 
+      {/* ── Desktop slide-out sidebar ── */}
       <div
         className={`mobile-overlay ${menuOpen ? 'is-open' : ''}`}
         onClick={() => setMenuOpen(false)}
@@ -51,7 +52,6 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
           <div className="brand-avatar">
             <img src="/assets/Brand.png" alt="Neo" />
           </div>
-
           <button
             type="button"
             className="close-button"
@@ -73,6 +73,28 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks }) {
           Let&apos;s Talk →
         </a>
       </aside>
+
+      {/* ── Mobile bottom pill nav (only visible ≤ 480px) ── */}
+      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+        {[
+          ['home',          '⌂', 'Home'],
+          ['experience',   '◈', 'Exp'],
+          ['tech',          '⟨⟩', 'Tech'],
+          ['certifications','✦', 'Certs'],
+          ['projects',      '▦', 'Work'],
+          ['contact',       '✉', 'Talk'],
+        ].map(([id, icon, label]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`mbn-item${activeSection === id ? ' is-active' : ''}`}
+            aria-label={label}
+          >
+            <span className="mbn-icon">{icon}</span>
+            <span className="mbn-label">{label}</span>
+          </a>
+        ))}
+      </nav>
     </>
   );
 }
