@@ -10,7 +10,7 @@ import {
 } from './data/data';
 
 import Navbar from './components/Navbar';
-import useNotifications from './hooks/useNotifications';
+import useNotifications from './useNotifications';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import TechStack from './components/TechStack';
