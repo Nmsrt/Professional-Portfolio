@@ -10,7 +10,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks, activeSection }) {
 
   return (
     <>
-      {/* Desktop topbar */}
+      {/* ── Desktop topbar ── */}
       <header className="topbar-shell">
         <div className="topbar">
           <a href="#home" className="brand" aria-label="Neo Monserrat home">
@@ -40,7 +40,7 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks, activeSection }) {
         </div>
       </header>
 
-      {/* Desktop slide-out */}
+      {/* ── Desktop slide-out sidebar ── */}
       <div className={`mobile-overlay ${menuOpen ? 'is-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <aside className={`mobile-sidebar ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile menu">
         <div className="mobile-head">
@@ -51,15 +51,22 @@ function Navbar({ menuOpen, setMenuOpen, NavLinks, activeSection }) {
         <a className="mobile-cta" href="#contact" onClick={() => setMenuOpen(false)}>Let&apos;s Talk →</a>
       </aside>
 
-      {/* Mobile bottom pill nav */}
+      {/* ── Mobile bottom nav ── */}
       <nav className="mbn" aria-label="Mobile navigation">
         {navItems.map(([id, icon, label]) => {
           const active = activeSection === id;
           return (
-            <a key={id} href={`#${id}`} className={`mbn-item${active ? ' mbn-active' : ''}`} aria-label={label}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className="mbn-item"
+              data-active={active ? 'true' : undefined}
+              aria-label={label}
+              aria-current={active ? 'page' : undefined}
+            >
               <span className="mbn-icon">{icon}</span>
               <span className="mbn-label">{label}</span>
-              {active && <span className="mbn-dot" />}
+              {active && <span className="mbn-dot" aria-hidden="true" />}
             </a>
           );
         })}

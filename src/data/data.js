@@ -138,7 +138,7 @@ export const personalProjects = [
     title: 'Personal Budget Tracker App',
     meta: 'React · Express · SQLite',
     summary: 'A simple app for tracking personal expenses and managing budgets.',
-    link: 'https://github.com/Nmsrt/Personal-Budget-Tracker',
+    link: 'https://github.com/Nmsrt/Personal-Budget-Tracker-App',
     image: '/assets/projects/Personal-Budget-Tracker Preview.png'
   },
   {

@@ -10,6 +10,7 @@ import {
 } from './data/data';
 
 import Navbar from './components/Navbar';
+import useNotifications from './hooks/useNotifications';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import TechStack from './components/TechStack';
@@ -22,6 +23,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  useNotifications();
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
