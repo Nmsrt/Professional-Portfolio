@@ -311,38 +311,51 @@ select,
 ========================= */
 
 @media (min-width: 481px) {
-  /* Snap on the main column, not html —
-     html owns the sidebar grid, main column scrolls */
+  /* Full-height, no overflow on root */
   html, body, #root {
     height: 100%;
     margin: 0;
+    overflow: hidden;
   }
 
-  /* site-shell is a grid: sidebar | scrollable main */
+  /* site-shell: sidebar (fixed) | scrollable main column */
   .site-shell {
     display: grid;
     grid-template-columns: var(--sidebar-w, 220px) 1fr;
+    grid-template-rows: 100svh;
     height: 100svh;
     overflow: hidden;
   }
 
-  /* The main+footer column scrolls and snaps */
+  /* Sidebar occupies column 1 (the fixed aside handles its own position) */
+  .sidebar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Main content column: snapping scroll container */
   .site-shell > main {
     grid-column: 2;
+    grid-row: 1;
     height: 100svh;
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
     scroll-behavior: smooth;
     scrollbar-width: none;
   }
   .site-shell > main::-webkit-scrollbar { display: none; }
 
-  /* Footer sits in the snap flow too */
+  /* Footer is part of the snap scroll flow, inside main */
+  /* (Footer is rendered inside <main> implicitly by
+     being placed after sections — if it's a sibling of
+     <main>, move it inside main in App.jsx) */
   .site-shell > footer {
     grid-column: 2;
   }
 
-  /* Every section = exactly one viewport tall */
+  /* Every section + footer = exactly one viewport */
   .hero-section,
   .section,
   .contact-section,
@@ -359,7 +372,7 @@ select,
     width: 100%;
   }
 
-  /* .section inner shell fills and centres */
+  /* Inner shell: fill + centre vertically */
   .section > .wide-shell {
     width: 100%;
     height: 100%;
@@ -375,20 +388,7 @@ select,
     align-items: unset;
   }
 
-  .site-footer {
-    align-items: center;
-  }
-
-  /* Inner scrollable lists within snapped sections */
-  .experience-timeline,
-  .tech-layout,
-  .certifications-grid,
-  .project-columns {
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(184,255,87,0.25) transparent;
-  }
-
+  .site-footer { align-items: center; }
   .matrix-section { padding-block: 0; }
-  .section-header  { flex-shrink: 0; }
+  .section-header { flex-shrink: 0; }
 }

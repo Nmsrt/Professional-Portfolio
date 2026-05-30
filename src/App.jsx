@@ -95,9 +95,8 @@ export default function App() {
         <Certifications />
         <Projects />
         <Contact resumeOpen={resumeOpen} setResumeOpen={setResumeOpen} />
+        <Footer year={year} />
       </main>
-
-      <Footer year={year} />
     </div>
   );
 }
