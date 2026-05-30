@@ -140,13 +140,6 @@ export const personalProjects = [
     summary: 'A simple app for tracking personal expenses and managing budgets.',
     link: 'https://github.com/Nmsrt/Personal-Budget-Tracker-App',
     image: '/assets/projects/Personal-Budget-Tracker Preview.png'
-  },
-  {
-    title: 'More projects coming soon',
-    meta: '... · ... · ...',
-    summary: '...',
-    link: '#projects',
-    image: '/assets/projects/coming-soon.png'
   }
 ];
 

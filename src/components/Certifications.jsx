@@ -11,12 +11,6 @@ function Certifications() {
           <h2>Certifications</h2>
         </div>
 
-        {/* Mobile header */}
-        <div className="mob-section-head show-mobile">
-          <span className="mob-eyebrow">Credentials</span>
-          <h2 className="mob-h2">Certs</h2>
-        </div>
-
         <div className="certifications-grid">
           {certifications.map((cert) => (
             <article className="card certification-card" key={cert.title}>
