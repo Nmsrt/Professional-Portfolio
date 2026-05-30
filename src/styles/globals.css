@@ -304,3 +304,84 @@ select,
 .social-pill {
   cursor: url('/assets/pointer.png') 8 8, pointer;
 }
+
+/* =========================
+   DESKTOP SNAP SCROLL
+   (min-width: 481px only)
+========================= */
+
+@media (min-width: 481px) {
+  /* Snap container lives on the root shell */
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height: 100%;
+  }
+
+  body,
+  #root {
+    height: auto;
+    min-height: 100%;
+  }
+
+  /* Every section = exactly one viewport */
+  .hero-section,
+  .section,
+  .contact-section,
+  .site-footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* centre content vertically */
+    display: flex;
+    align-items: center;
+  }
+
+  /* .section wraps a wide-shell — let it fill height */
+  .section > .wide-shell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Hero already handles its own internal layout */
+  .hero-section {
+    display: block;
+    align-items: unset;
+  }
+
+  /* Footer doesn't need to be centred the same way */
+  .site-footer {
+    align-items: center;
+  }
+
+  /* Sections that have extra internal scroll (projects, experience)
+     keep overflow-y auto inside their own scrollable child */
+  .experience-timeline,
+  .tech-layout,
+  .certifications-grid,
+  .project-columns {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184,255,87,0.25) transparent;
+  }
+
+  /* Remove the matrix-section extra padding —
+     it is now absorbed by the flex centering */
+  .matrix-section {
+    padding-block: 0;
+  }
+
+  /* section-header stays compact */
+  .section-header {
+    flex-shrink: 0;
+  }
+}

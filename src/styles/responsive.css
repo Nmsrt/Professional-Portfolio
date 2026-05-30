@@ -91,52 +91,45 @@
       0 16px 48px rgba(0, 0, 0, 0.7);
   }
 
-  /* Every item: dim, no background, no highlight */
+  /* Every item: dim, no background */
   .mbn-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2px;
-    padding: 7px 6px 8px;
+    padding: 6px 4px 6px;
     border-radius: 999px;
-    color: rgba(255, 255, 255, 0.32);
+    color: rgba(255, 255, 255, 0.3);
     text-decoration: none;
     flex: 1;
     position: relative;
-    transition: color 0.15s ease;
-    background: none !important; /* never highlighted */
+    transition: color 0.15s ease, background 0.15s ease;
+    background: none;
   }
 
-  /* Active: ONLY the text turns green. Nothing else. */
+  /* Active: green pill background + bright green text.
+     Applies equally to ALL items including Talk/contact.
+     No special-casing of any single item. */
   .mbn-item[data-active='true'] {
-    color: var(--accent);
-    background: none !important;
+    color: #0a0a0a;
+    background: var(--accent);
+    box-shadow: 0 0 14px rgba(184, 255, 87, 0.35);
   }
 
   .mbn-icon {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1;
   }
 
   .mbn-label {
-    font-size: 0.52rem;
-    font-weight: 700;
+    font-size: 0.5rem;
+    font-weight: 800;
     letter-spacing: 0.07em;
     text-transform: uppercase;
   }
 
-  /* Active dot indicator — sits below label */
-  .mbn-dot {
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 5px rgba(184, 255, 87, 0.9);
-  }
+  /* No dot needed — the pill background is the indicator */
+  .mbn-dot { display: none; }
 
   /* ── Snap container ── */
   .site-shell {
