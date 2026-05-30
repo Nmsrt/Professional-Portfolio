@@ -6,8 +6,8 @@ function Certifications() {
       <div className="wide-shell">
         <span className="matrix-section-num">03</span>
 
-        {/* Desktop header */}
-        <div className="section-header center hide-mobile">
+        {/* Section header — visible on both desktop and mobile */}
+        <div className="section-header center">
           <h2>Certifications</h2>
         </div>
 

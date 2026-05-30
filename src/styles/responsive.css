@@ -273,10 +273,10 @@
     gap: 0;
   }
 
-  /* Portrait zone: fixed px so it doesn't balloon on tall screens */
+  /* Portrait zone — was 46svh, now 38svh to reduce top gap */
   .hero-visual {
     flex: 0 0 auto;
-    height: 46svh;
+    height: 38svh;
     display: flex; align-items: flex-end; justify-content: center;
     overflow: hidden;
     position: relative;
@@ -405,8 +405,7 @@
 
   /* ── CERTIFICATIONS ── */
   .certifications-section { padding-top: 0; }
-  /* Section heading gets same padding as other sections via .section > .wide-shell padding-top */
-  .certifications-section .section-header { margin-bottom: 14px; }
+  .certifications-section .section-header { margin-bottom: 14px; text-align: center; }
   .certifications-grid { flex: 1; min-height: 0; grid-template-columns: 1fr; gap: 10px; overflow-y: auto; scrollbar-width: none; }
   .certifications-grid::-webkit-scrollbar { display: none; }
   .certification-card { padding: 18px; min-height: auto; }
