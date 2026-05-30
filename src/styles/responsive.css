@@ -17,7 +17,7 @@
 
   /* Hide mobile-only elements */
   .mobile-topbar    { display: none !important; }
-  .sidebar          { display: flex; }           /* sidebar.css shows it */
+  .sidebar          { display: flex; }
   .mbn              { display: none !important; }
   .projects-mobile  { display: none !important; }
   .projects-desktop { display: block !important; }
@@ -75,7 +75,7 @@
   /* ── TECH — flat, no panel boxes ── */
   .tech-layout {
     gap: 0;
-    display: block; /* panels stack vertically */
+    display: block;
   }
 
   .tech-panel {
@@ -128,7 +128,7 @@
   .proj-thesis-card-links .btn { min-height: 34px; padding: 6px 12px; font-size: 0.78rem; }
 
   .proj-groups { gap: 14px; }
-  .proj-groups .pgroup-list { max-height: 200px; } /* ~3.5 rows visible */
+  .proj-groups .pgroup-list { max-height: 200px; }
 
   .pgroup { border-radius: 16px; }
   .pgroup-head { padding: 12px 14px 10px; }
@@ -267,22 +267,22 @@
 
   .hero-grid {
     width: 100%; height: 100%;
-    padding: 0 0 58px 0; /* clears bottom nav */
+    padding: 0 0 58px 0;
     display: flex !important;
     flex-direction: column;
     gap: 0;
   }
 
-  /* Portrait zone: fixed px so it doesn't balloon on tall screens */
+  /* Portrait zone */
   .hero-visual {
     flex: 0 0 auto;
-    height: 44svh;
-    display: flex; align-items: flex-start; justify-content: center;
+    height: 40svh;
+    display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     position: relative;
   }
 
-  /* Subtle glow only at the very bottom, behind the feet */
+  /* Subtle glow at the very bottom */
   .hero-visual::after {
     content: '';
     position: absolute;
@@ -296,20 +296,19 @@
   .hero-visual-ring-1, .hero-visual-ring-2 { display: none; }
 
   .hero-portrait-card {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 100%;
-  height: 100%;
-  border-radius: 0;
-  background: transparent; box-shadow: none; border: none;
-  margin: 0 auto;
+    position: relative; z-index: 1;
+    width: 80%; max-width: 320px;
+    height: 100%;
+    border-radius: 0;
+    background: transparent; box-shadow: none; border: none;
+    margin: 0 auto;
   }
-  /* Remove the old ::before glow — replaced by ::after on .hero-visual */
   .hero-portrait-card::before { display: none; }
 
   .hero-portrait-image {
     width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: contain;
+    object-position: center center;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
   }
 
@@ -351,7 +350,6 @@
   /* ── EXPERIENCE ── */
   .experience-heading { margin-bottom: 12px; }
   .experience-heading h2 { font-size: clamp(1.7rem, 9vw, 2.2rem); line-height: 1; margin-bottom: 0; }
-  /* Hide desktop year column on mobile — year shown inline via mob-year-badge */
   .timeline-year { display: none; }
   .mob-year-badge { display: inline-flex; flex-shrink: 0; font-size: 0.62rem; font-weight: 700; color: var(--accent); background: rgba(184,255,87,0.07); border: 1px solid rgba(184,255,87,0.18); border-radius: 999px; padding: 2px 7px; margin-top: 3px; }
   .timeline-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 3px; }
@@ -370,11 +368,10 @@
   .section-header { margin-bottom: 12px; }
   .section-header h2 { font-size: clamp(1.8rem,9vw,2.4rem); }
 
-  /* Remove panel box styling — flat look */
   .tech-layout {
     flex: 1; min-height: 0; overflow-y: auto;
     gap: 0; scrollbar-width: none;
-    display: block; /* override grid so panels stack */
+    display: block;
   }
   .tech-layout::-webkit-scrollbar { display: none; }
 
@@ -425,7 +422,7 @@
   .projects-mobile  {
     display: flex; flex-direction: column;
     flex: 1; min-height: 0;
-    overflow: hidden; /* groups handle their own scroll */
+    overflow: hidden;
   }
 
   /* Modal slides up from bottom on mobile */
