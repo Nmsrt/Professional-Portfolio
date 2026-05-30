@@ -72,20 +72,34 @@
   .timeline-text     { font-size: 0.88rem; line-height: 1.7; }
   .timeline-year span { font-size: 0.92rem; }
 
-  /* ── TECH ── */
-  .tech-layout { gap: 20px; }
-  .tech-panel { padding: 20px; }
-  .tech-panel-head { margin-bottom: 14px; }
-  .tech-panel-head h3 {
-    font-size: 0.76rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+  /* ── TECH — flat, no panel boxes ── */
+  .tech-layout {
+    gap: 0;
+    display: block; /* panels stack vertically */
   }
 
-  .tech-clean-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+  .tech-panel {
+    padding: 0;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 24px;
+  }
+
+  .tech-panel-head { margin-bottom: 12px; }
+  .tech-panel-head h3 {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(184,255,87,0.15);
+  }
+
+  .tech-clean-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
   .tech-clean-card { min-height: 110px; padding: 16px 12px; gap: 10px; border-radius: 14px; align-items: center; }
   .tech-clean-icon-wrap { width: 46px; height: 46px; border-radius: 12px; }
   .tech-clean-icon      { width: 30px; height: 30px; }
-  .tech-clean-name      { font-size: 0.88rem; }
+  .tech-clean-name      { font-size: 0.9rem; }
 
   /* ── CERTIFICATIONS ── */
   .certifications-section { padding-top: 0; }
@@ -253,63 +267,79 @@
 
   .hero-grid {
     width: 100%; height: 100%;
-    padding: 0 0 60px 0;
+    padding: 0 0 58px 0; /* clears bottom nav */
     display: flex !important;
     flex-direction: column;
     gap: 0;
   }
 
+  /* Portrait zone: fixed px so it doesn't balloon on tall screens */
   .hero-visual {
-    flex: 0 0 52%;
+    flex: 0 0 auto;
+    height: 46svh;
     display: flex; align-items: flex-end; justify-content: center;
     overflow: hidden;
-    background: radial-gradient(ellipse at 50% 90%, rgba(184,255,87,0.18) 0%, rgba(184,255,87,0.06) 42%, transparent 68%);
+    position: relative;
   }
+
+  /* Subtle glow only at the very bottom, behind the feet */
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 10%; right: 10%;
+    height: 35%;
+    background: radial-gradient(ellipse at 50% 100%, rgba(184,255,87,0.2), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
   .hero-visual-ring-1, .hero-visual-ring-2 { display: none; }
 
   .hero-portrait-card {
     position: relative; z-index: 1;
-    width: 72%; max-width: 280px;
-    height: 100%; border-radius: 0;
-    background: transparent; box-shadow: none; border: none; margin: 0 auto;
+    width: 80%; max-width: 300px;
+    height: 100%;
+    border-radius: 0;
+    background: transparent; box-shadow: none; border: none;
+    margin: 0 auto;
   }
-  .hero-portrait-card::before {
-    content: ''; position: absolute; inset: auto 0 -10px 0; height: 40%;
-    background: radial-gradient(ellipse at 50% 100%, rgba(184,255,87,0.22), transparent 70%);
-    filter: blur(20px); pointer-events: none; display: block;
-  }
+  /* Remove the old ::before glow — replaced by ::after on .hero-visual */
+  .hero-portrait-card::before { display: none; }
+
   .hero-portrait-image {
-    width: 100%; height: 100%; object-fit: contain; object-position: center bottom;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.5));
+    width: 100%; height: 100%;
+    object-fit: contain; object-position: center bottom;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
   }
 
+  /* Copy zone fills remaining space */
   .hero-copy-left {
     flex: 1; display: flex; flex-direction: column; justify-content: center;
-    padding: 14px var(--content-pad) 0;
+    padding: 12px var(--content-pad) 0;
     border-top: 1px solid rgba(255,255,255,0.05);
-    background: linear-gradient(180deg, rgba(4,4,4,0.9) 0%, rgba(4,4,4,0.98) 100%);
+    background: linear-gradient(180deg, rgba(4,4,4,0.88) 0%, rgba(4,4,4,0.97) 100%);
     backdrop-filter: blur(4px);
   }
 
-  .hero-chip-row { display: flex; gap: 6px; margin-bottom: 8px; }
-  .hero-chip { font-size: 0.66rem; padding: 4px 10px; border-radius: 999px; }
+  .hero-chip-row { display: flex; gap: 6px; margin-bottom: 10px; }
+  .hero-chip { font-size: 0.7rem; padding: 5px 12px; border-radius: 999px; }
   .hero-chip-muted {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
     color: rgba(255,255,255,0.45);
   }
-  .hero-title-main { font-size: clamp(2.2rem, 11vw, 3rem); line-height: 0.92; margin: 0; }
+  .hero-title-main { font-size: clamp(2.4rem, 12vw, 3.4rem); line-height: 0.92; margin: 0; }
   .hero-title-main br { display: block; }
-  .hero-title-sub  { font-size: clamp(1.7rem, 9vw, 2.4rem); margin-top: 2px; margin-bottom: 0; }
-  .hero-role { font-size: 0.8rem; margin-top: 6px; line-height: 1.55; color: #888e83; max-width: 96%; }
+  .hero-title-sub  { font-size: clamp(1.9rem, 10vw, 2.8rem); margin-top: 3px; margin-bottom: 0; }
+  .hero-role { font-size: 0.86rem; margin-top: 8px; line-height: 1.6; color: #888e83; max-width: 96%; }
 
   .hero-actions {
-    margin-top: 12px; flex-direction: row !important;
+    margin-top: 14px; flex-direction: row !important;
     flex-wrap: nowrap; gap: 8px; align-items: stretch;
   }
   .hero-actions .resume-dropdown, .hero-actions > .btn { flex: 1; min-width: 0; width: auto !important; }
   .hero-actions .resume-dropdown .btn, .hero-actions > .btn {
-    width: 100%; min-height: 42px; font-size: 0.8rem;
-    padding: 8px 10px; border-radius: 11px; justify-content: center;
+    width: 100%; min-height: 44px; font-size: 0.84rem;
+    padding: 9px 12px; border-radius: 12px; justify-content: center;
   }
 
   /* ── SHARED MOBILE HEADING ── */
@@ -327,41 +357,68 @@
   .timeline-title-row h3 { margin: 0; font-size: 0.95rem; line-height: 1.2; flex: 1; color: var(--text); }
   .experience-timeline { flex: 1; min-height: 0; overflow-y: auto; gap: 0; scrollbar-width: none; }
   .experience-timeline::-webkit-scrollbar { display: none; }
-  .timeline-item { grid-template-columns: 16px 1fr; gap: 12px; padding-bottom: 18px; }
+  .timeline-item { grid-template-columns: 20px 1fr; gap: 14px; padding-bottom: 22px; }
   .timeline-content { grid-template-columns: 1fr; gap: 0; }
-  .timeline-dot { width: 8px; height: 8px; margin-top: 4px; }
-  .timeline-company  { font-size: 0.76rem; margin-bottom: 1px; }
-  .timeline-location { font-size: 0.7rem; margin-bottom: 5px; color: #666; }
-  .timeline-text     { font-size: 0.76rem; line-height: 1.65; color: #888; }
+  .timeline-dot { width: 10px; height: 10px; margin-top: 4px; }
+  .timeline-title-row h3 { font-size: 1.05rem; }
+  .timeline-company  { font-size: 0.84rem; margin-bottom: 2px; }
+  .timeline-location { font-size: 0.76rem; margin-bottom: 6px; color: #666; }
+  .timeline-text     { font-size: 0.82rem; line-height: 1.68; color: #888; }
 
-  /* ── TECH ── */
-  .section-header { margin-bottom: 10px; }
+  /* ── TECH — no panel containers, flat grid ── */
+  .section-header { margin-bottom: 12px; }
   .section-header h2 { font-size: clamp(1.8rem,9vw,2.4rem); }
-  .tech-layout { flex: 1; min-height: 0; overflow-y: auto; gap: 10px; scrollbar-width: none; }
+
+  /* Remove panel box styling — flat look */
+  .tech-layout {
+    flex: 1; min-height: 0; overflow-y: auto;
+    gap: 0; scrollbar-width: none;
+    display: block; /* override grid so panels stack */
+  }
   .tech-layout::-webkit-scrollbar { display: none; }
-  .tech-panel { padding: 12px 14px; }
+
+  .tech-panel {
+    padding: 0;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 16px;
+  }
+
   .tech-panel-head { margin-bottom: 8px; }
-  .tech-panel-head h3 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .tech-clean-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
-  .tech-clean-card { min-height: 72px; padding: 9px 7px; gap: 5px; border-radius: 12px; align-items: center; }
-  .tech-clean-icon-wrap { width: 32px; height: 32px; border-radius: 9px; }
-  .tech-clean-icon { width: 21px; height: 21px; }
-  .tech-clean-name { font-size: 0.7rem; font-weight: 600; }
+  .tech-panel-head h3 {
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(184,255,87,0.12);
+  }
+
+  .tech-clean-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; }
+  .tech-clean-card {
+    min-height: 80px; padding: 10px 8px; gap: 6px;
+    border-radius: 12px; align-items: center;
+  }
+  .tech-clean-icon-wrap { width: 36px; height: 36px; border-radius: 10px; }
+  .tech-clean-icon { width: 24px; height: 24px; }
+  .tech-clean-name { font-size: 0.74rem; font-weight: 600; }
 
   /* ── CERTIFICATIONS ── */
   .certifications-section { padding-top: 0; }
+  /* Section heading gets same padding as other sections via .section > .wide-shell padding-top */
+  .certifications-section .section-header { margin-bottom: 14px; }
   .certifications-grid { flex: 1; min-height: 0; grid-template-columns: 1fr; gap: 10px; overflow-y: auto; scrollbar-width: none; }
   .certifications-grid::-webkit-scrollbar { display: none; }
-  .certification-card { padding: 14px; min-height: auto; }
-  .certification-top { margin-bottom: 8px; }
-  .certification-badge { font-size: 0.66rem; padding: 3px 9px; }
-  .certification-date  { font-size: 0.7rem; }
-  .certification-card h3 { font-size: 0.97rem; margin: 0 0 3px; line-height: 1.2; }
-  .certification-issuer  { font-size: 0.76rem; margin: 0 0 6px; }
-  .certification-card > p { font-size: 0.76rem; line-height: 1.65; color: #888; margin: 0; }
-  .certification-card .chip-row { padding-top: 9px; gap: 5px; }
-  .chip { font-size: 0.66rem; padding: 3px 8px; }
-  .certification-link { margin-top: 9px; font-size: 0.78rem; }
+  .certification-card { padding: 18px; min-height: auto; }
+  .certification-top { margin-bottom: 10px; }
+  .certification-badge { font-size: 0.7rem; padding: 4px 10px; }
+  .certification-date  { font-size: 0.76rem; }
+  .certification-card h3 { font-size: 1.08rem; margin: 0 0 5px; line-height: 1.2; }
+  .certification-issuer  { font-size: 0.84rem; margin: 0 0 8px; }
+  .certification-card > p { font-size: 0.82rem; line-height: 1.68; color: #888; margin: 0; }
+  .certification-card .chip-row { padding-top: 11px; gap: 6px; }
+  .chip { font-size: 0.72rem; padding: 4px 10px; }
+  .certification-link { margin-top: 12px; font-size: 0.84rem; }
 
   /* ── PROJECTS (mobile) ── */
   .projects-desktop { display: none !important; }
@@ -387,14 +444,17 @@
     to   { transform: translateY(0); opacity: 1; }
   }
 
-  /* Mobile group boxes: fixed height so 2 fit on screen */
-  .projects-mobile .pgroup { border-radius: 12px; margin-bottom: 8px; }
-  .projects-mobile .pgroup-list { max-height: 130px; }
+  /* Mobile group boxes */
+  .projects-mobile .pgroup { border-radius: 14px; margin-bottom: 10px; }
+  .projects-mobile .pgroup-list { max-height: 150px; }
+  .pgroup-head { padding: 10px 12px 8px; }
+  .pgroup-label { font-size: 0.68rem; }
 
-  .prow { padding: 7px 4px; gap: 8px; }
-  .prow-thumb { width: 32px; height: 32px; }
-  .prow-title { font-size: 0.78rem; }
-  .prow-meta  { font-size: 0.6rem; }
+  .prow { padding: 10px 6px; gap: 10px; }
+  .prow-thumb { width: 38px; height: 38px; border-radius: 9px; }
+  .prow-title { font-size: 0.86rem; }
+  .prow-meta  { font-size: 0.66rem; }
+  .prow-arrow { font-size: 1.2rem; }
 
   /* ── CONTACT ── */
   .contact-section { display: flex; align-items: center; }
