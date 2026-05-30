@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import {
   experienceItems,
@@ -19,14 +19,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [menuOpen,       setMenuOpen]       = useState(false);
-  const [resumeOpen,     setResumeOpen]     = useState(false);
-  const [activeSection,  setActiveSection]  = useState('home');
-  const shellRef = useRef(null);
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [resumeOpen,    setResumeOpen]    = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
-  /* ── Service worker + notification registration ── */
+  /* ── Service worker + notifications ── */
   useEffect(() => {
     if (!('serviceWorker' in navigator) || !('Notification' in window)) return;
     const register = async () => {
@@ -43,29 +42,17 @@ export default function App() {
     register();
   }, []);
 
-  /* ── Active section tracker ──
-     On mobile the snap scroll container is .site-shell (overflow-y: scroll).
-     On desktop it is the html element.
-     We listen on both and use IntersectionObserver as the source of truth
-     so we never have to measure scroll positions manually.
-  ── */
+  /* ── Active section via IntersectionObserver ── */
   useEffect(() => {
-    const sectionIds = ['home', 'experience', 'tech', 'certifications', 'projects', 'contact'];
+    const sectionIds = ['home','experience','tech','certifications','projects','contact'];
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      {
-        // Fire when a section covers at least 50% of the viewport
-        threshold: 0.5,
-        // Use the snap container as root on mobile, viewport on desktop
-        root: null,
-      }
+      { threshold: 0.5, root: null }
     );
 
     sectionIds.forEach((id) => {
@@ -76,7 +63,7 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  /* ── Scroll-reveal animations ── */
+  /* ── Scroll-reveal ── */
   useEffect(() => {
     const els = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver(
@@ -87,43 +74,18 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  /* ── Body overflow lock when mobile sidebar open ── */
+  /* ── Body lock when mobile menu open ── */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const navItems = [
-    ['home',          'Home'],
-    ['experience',    'Experience'],
-    ['tech',          'Tech'],
-    ['certifications','Certifications'],
-    ['projects',      'Projects'],
-    ['contact',       'Contact'],
-  ];
-
-  const NavLinks = ({ mobile = false }) => (
-    <>
-      {navItems.map(([id, label]) => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={`${mobile ? 'mobile-link' : 'topbar-link'} ${activeSection === id ? 'is-active' : ''}`}
-          onClick={() => setMenuOpen(false)}
-        >
-          {label}
-        </a>
-      ))}
-    </>
-  );
-
   return (
-    <div className="site-shell" ref={shellRef}>
+    <div className="site-shell">
       <Navbar
         activeSection={activeSection}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-        NavLinks={NavLinks}
       />
 
       <main>

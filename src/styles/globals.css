@@ -306,26 +306,43 @@ select,
 }
 
 /* =========================
-   DESKTOP SNAP SCROLL
+   DESKTOP SNAP SCROLL + SIDEBAR LAYOUT
    (min-width: 481px only)
 ========================= */
 
 @media (min-width: 481px) {
-  /* Snap container lives on the root shell */
-  html {
+  /* Snap on the main column, not html —
+     html owns the sidebar grid, main column scrolls */
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* site-shell is a grid: sidebar | scrollable main */
+  .site-shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-w, 220px) 1fr;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  /* The main+footer column scrolls and snaps */
+  .site-shell > main {
+    grid-column: 2;
+    height: 100svh;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    overflow-y: scroll;
-    height: 100%;
+    scrollbar-width: none;
+  }
+  .site-shell > main::-webkit-scrollbar { display: none; }
+
+  /* Footer sits in the snap flow too */
+  .site-shell > footer {
+    grid-column: 2;
   }
 
-  body,
-  #root {
-    height: auto;
-    min-height: 100%;
-  }
-
-  /* Every section = exactly one viewport */
+  /* Every section = exactly one viewport tall */
   .hero-section,
   .section,
   .contact-section,
@@ -337,12 +354,12 @@ select,
     max-height: 100svh;
     overflow: hidden;
     box-sizing: border-box;
-    /* centre content vertically */
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
-  /* .section wraps a wide-shell — let it fill height */
+  /* .section inner shell fills and centres */
   .section > .wide-shell {
     width: 100%;
     height: 100%;
@@ -352,19 +369,17 @@ select,
     overflow: hidden;
   }
 
-  /* Hero already handles its own internal layout */
+  /* Hero manages its own layout */
   .hero-section {
     display: block;
     align-items: unset;
   }
 
-  /* Footer doesn't need to be centred the same way */
   .site-footer {
     align-items: center;
   }
 
-  /* Sections that have extra internal scroll (projects, experience)
-     keep overflow-y auto inside their own scrollable child */
+  /* Inner scrollable lists within snapped sections */
   .experience-timeline,
   .tech-layout,
   .certifications-grid,
@@ -374,14 +389,6 @@ select,
     scrollbar-color: rgba(184,255,87,0.25) transparent;
   }
 
-  /* Remove the matrix-section extra padding —
-     it is now absorbed by the flex centering */
-  .matrix-section {
-    padding-block: 0;
-  }
-
-  /* section-header stays compact */
-  .section-header {
-    flex-shrink: 0;
-  }
+  .matrix-section { padding-block: 0; }
+  .section-header  { flex-shrink: 0; }
 }
