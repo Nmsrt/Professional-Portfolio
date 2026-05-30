@@ -120,22 +120,30 @@ button, input, textarea, select { font: inherit; }
     align-items: unset;
   }
 
-  /* Inner shell: column, vertically centred, no overflow */
+  /* Inner shell: fill full height, column layout */
   .section > .wide-shell {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
-    padding-block: 28px;
+    padding-top: 36px;
+    padding-bottom: 20px;
   }
 
   .site-footer { align-items: center; }
-
-  /* Matrix section: no extra padding (absorbed by flex centre) */
   .matrix-section { padding-block: 0; }
   .section-header  { flex-shrink: 0; }
+
+  /* show-mobile hidden on desktop */
+  .show-mobile { display: none !important; }
+  .hide-mobile { display: block !important; }
+
+  /* Mobile-only year badge hidden on desktop */
+  .mob-year-badge { display: none !important; }
+  /* Desktop year column visible */
+  .timeline-year { display: block !important; }
 }
 
 /* =========================
