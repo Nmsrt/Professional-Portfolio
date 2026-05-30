@@ -1,5 +1,5 @@
 /* =========================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ========================= */
 
 @media (max-width: 1280px) {
@@ -157,32 +157,69 @@
   }
 }
 
-/* =========================
-   MOBILE — PRIMARY FIXES
-   (portrait phones ≤ 480px)
-========================= */
+/* =====================================================
+   MOBILE — FULL-SCREEN SNAP LAYOUT  (≤ 480px)
+   Each section = exactly one screen, scroll-snapped.
+===================================================== */
 
 @media (max-width: 480px) {
   :root {
     --content-pad: 16px;
   }
 
-  /* ── Sections: no more full-viewport height ── */
-  .section,
-  .hero-section,
-  .contact-section {
-    min-height: auto !important;
-    padding-block: 52px 48px;
+  /* ── Snap container on the root shell ── */
+  .site-shell {
+    height: 100svh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* Hide scrollbar but keep scrollability */
+  .site-shell::-webkit-scrollbar {
+    display: none;
+  }
+  .site-shell {
+    scrollbar-width: none;
+  }
+
+  /* ── Every section snaps to its own screen ── */
+  .section,
+  .hero-section,
+  .contact-section,
+  .site-footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* matrix-section padding already inside .section */
   .matrix-section {
-    padding: 52px 0 48px;
+    padding: 0;
+  }
+
+  /* Inner wide-shell: fill height, flex column centered */
+  .section > .wide-shell,
+  .hero-section > .hero-frame > .hero-grid,
+  .contact-section > .wide-shell {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   /* ── Topbar ── */
   .topbar-shell {
     top: 10px;
     padding-inline: 12px;
+    /* stays fixed above snap container */
+    position: fixed;
+    z-index: 200;
   }
 
   .topbar {
@@ -191,287 +228,492 @@
   }
 
   /* ── Hero ── */
+  .hero-section {
+    display: flex;
+    align-items: stretch;
+  }
+
   .hero-frame {
-    min-height: auto;
+    width: 100%;
+    height: 100%;
+    min-height: unset;
+    overflow: hidden;
   }
 
   .hero-grid {
-    padding-top: 80px;
-    padding-bottom: 40px;
-    gap: 24px;
+    width: 100%;
+    height: 100%;
+    padding-top: 72px;
+    padding-bottom: 16px;
+    padding-inline: var(--content-pad);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    /* override wide-shell grid */
+    grid-template-columns: unset !important;
   }
 
   .hero-title-main {
-    font-size: clamp(2.6rem, 13vw, 3.8rem);
+    font-size: clamp(2.4rem, 12vw, 3.4rem);
   }
 
   .hero-title-sub {
-    font-size: clamp(2rem, 11vw, 3rem);
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
   }
 
   .hero-role {
-    font-size: 0.94rem;
-    margin-top: 16px;
-    line-height: 1.65;
-  }
-
-  .hero-actions {
-    margin-top: 22px;
-    gap: 12px;
+    font-size: 0.88rem;
+    margin-top: 10px;
+    line-height: 1.6;
   }
 
   .hero-chip-row {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 
-  /* Portrait: shrink to a reasonable card, not full viewport */
+  .hero-actions {
+    margin-top: 14px;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 0.92rem;
+  }
+
+  /* Portrait image: compact strip at bottom */
   .hero-visual {
-    min-height: 280px;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .hero-portrait-card {
-    width: min(100%, 320px);
-    height: 320px;
-    border-radius: 24px;
+    width: 180px;
+    height: 190px;
+    border-radius: 20px;
     margin: 0 auto;
   }
 
-  .hero-visual-ring-1 {
-    width: 260px;
-    height: 260px;
-  }
-
+  .hero-visual-ring-1,
   .hero-visual-ring-2 {
-    width: 330px;
-    height: 330px;
+    display: none;
   }
 
   /* ── Experience ── */
   .experience-heading {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .experience-heading h2 {
-    font-size: clamp(2rem, 10vw, 2.8rem);
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .experience-heading .eyebrow {
+    margin-bottom: 4px;
   }
 
   .experience-timeline {
-    gap: 32px;
+    gap: 18px;
+    overflow-y: auto;
+    /* let timeline scroll inside the snapped section */
+    max-height: calc(100svh - 160px);
+    padding-right: 4px;
+  }
+
+  .experience-timeline::-webkit-scrollbar {
+    width: 3px;
+  }
+  .experience-timeline::-webkit-scrollbar-thumb {
+    background: rgba(184,255,87,0.3);
+    border-radius: 99px;
   }
 
   .timeline-item {
-    grid-template-columns: 24px 1fr;
-    gap: 14px;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
   }
 
   .timeline-main h3 {
-    font-size: 1.15rem;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-company,
+  .timeline-location {
+    font-size: 0.82rem;
+    margin-bottom: 4px;
   }
 
   .timeline-text {
-    font-size: 0.92rem;
-    line-height: 1.7;
+    font-size: 0.82rem;
+    line-height: 1.6;
   }
 
-  /* ── Section headings ── */
+  .timeline-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  /* ── Section headings (shared) ── */
+  .section-header {
+    margin-bottom: 16px;
+  }
+
   .section-header h2 {
-    font-size: clamp(2rem, 10vw, 2.8rem);
+    font-size: clamp(1.7rem, 9vw, 2.4rem);
+    margin-bottom: 0;
+  }
+
+  .matrix-section-num {
+    font-size: 1rem;
+    top: -38px;
   }
 
   /* ── Tech Stack ── */
   .tech-layout {
-    gap: 16px;
+    gap: 12px;
+    overflow-y: auto;
+    max-height: calc(100svh - 130px);
+  }
+
+  .tech-layout::-webkit-scrollbar { width: 3px; }
+  .tech-layout::-webkit-scrollbar-thumb {
+    background: rgba(184,255,87,0.3);
+    border-radius: 99px;
   }
 
   .tech-panel {
-    padding: 18px;
+    padding: 14px;
+  }
+
+  .tech-panel-head {
+    margin-bottom: 10px;
+  }
+
+  .tech-panel-head h3 {
+    font-size: 0.9rem;
   }
 
   .tech-clean-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .tech-clean-card {
-    min-height: 100px;
-    padding: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
   }
 
+  .tech-clean-card {
+    min-height: 80px;
+    padding: 10px 8px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+
   .tech-clean-icon-wrap {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
   }
 
   .tech-clean-icon {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
   }
 
   .tech-clean-name {
-    font-size: 0.88rem;
+    font-size: 0.75rem;
   }
 
   /* ── Certifications ── */
   .certifications-section {
-    padding-top: 52px;
+    padding-top: 0;
+  }
+
+  .certifications-section .section-header {
+    margin-bottom: 14px;
   }
 
   .certifications-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
+    overflow-y: auto;
+    max-height: calc(100svh - 130px);
+  }
+
+  .certifications-grid::-webkit-scrollbar { width: 3px; }
+  .certifications-grid::-webkit-scrollbar-thumb {
+    background: rgba(184,255,87,0.3);
+    border-radius: 99px;
   }
 
   .certification-card {
-    padding: 20px;
+    padding: 16px;
     min-height: auto;
   }
 
   .certification-card h3 {
-    font-size: 1.05rem;
-  }
-
-  .certification-card p {
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-
-  /* ── Projects ── */
-  .featured-card {
-    grid-template-columns: 1fr;
-    border-radius: 18px;
-    margin-bottom: 20px;
-  }
-
-  .featured-media {
-    min-height: 200px;
-    max-height: 220px;
-  }
-
-  .featured-content {
-    padding: 20px 18px;
-  }
-
-  .featured-content h3 {
-    font-size: 1.1rem;
-    line-height: 1.3;
-  }
-
-  .featured-content p {
-    font-size: 0.9rem;
-  }
-
-  .badge-row {
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-
-  .project-columns {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .column-head h3 {
-    font-size: 1.05rem;
-  }
-
-  .project-card-media {
-    flex-direction: column;
-    height: auto;
-    min-height: unset;
-  }
-
-  .project-card-image-wrap {
-    width: 100%;
-    height: 160px;
-    min-width: 0;
-    min-height: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .project-card-body {
-    height: auto;
-    min-height: unset;
-    padding: 16px;
-    overflow: visible;
-    justify-content: flex-start;
-  }
-
-  .project-card-body h4 {
     font-size: 0.97rem;
     margin-bottom: 6px;
   }
 
-  .project-card-body p {
-    font-size: 0.85rem;
+  .certification-issuer {
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+  }
+
+  .certification-card p {
+    font-size: 0.82rem;
     line-height: 1.6;
+  }
+
+  .certification-card .chip-row {
+    padding-top: 10px;
+    gap: 6px;
+  }
+
+  .chip {
+    font-size: 0.72rem;
+    padding: 5px 9px;
+  }
+
+  .certification-link {
+    margin-top: 12px;
+    font-size: 0.85rem;
+  }
+
+  /* ── Projects ── */
+  #projects {
+    overflow: hidden;
+  }
+
+  #projects > .wide-shell {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 56px;
+    overflow-y: auto;
+    /* inner scroll for projects since there are many */
+  }
+
+  #projects > .wide-shell::-webkit-scrollbar { width: 3px; }
+  #projects > .wide-shell::-webkit-scrollbar-thumb {
+    background: rgba(184,255,87,0.3);
+    border-radius: 99px;
+  }
+
+  .featured-card {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+    margin-bottom: 14px;
+  }
+
+  .featured-media {
+    min-height: 140px;
+    max-height: 140px;
+  }
+
+  .featured-content {
+    padding: 14px;
+  }
+
+  .featured-content h3 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .featured-content p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .badge, .badge-soft {
+    font-size: 0.68rem;
+    padding: 5px 9px;
+  }
+
+  .action-row {
+    margin-top: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .action-row .btn {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    font-size: 0.78rem;
+    padding: 10px 12px;
+    min-height: 38px;
+  }
+
+  .project-columns {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .column-head {
+    margin-bottom: 10px;
+  }
+
+  .column-head h3 {
+    font-size: 0.92rem;
+  }
+
+  .project-card-media {
+    flex-direction: row;
+    height: 80px;
+    min-height: 80px;
+  }
+
+  .project-card.project-card-media {
+    padding: 0;
+  }
+
+  .project-card-image-wrap {
+    width: 90px;
+    min-width: 90px;
+    height: 80px;
+    min-height: 80px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    border-bottom: none;
+  }
+
+  .project-card-body {
+    height: 80px;
+    min-height: 80px;
+    padding: 10px 12px;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .project-card-body h4 {
+    font-size: 0.82rem;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project-meta {
+    font-size: 0.68rem;
+    margin-bottom: 4px;
+  }
+
+  .project-card-body p:last-child {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* ── Contact ── */
   .contact-section {
-    display: block;
-    padding-block: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-center-wrap {
+    width: 100%;
   }
 
   .contact-center-card {
-    padding: 22px 16px;
-    border-radius: 22px;
+    padding: 20px 14px;
+    border-radius: 20px;
+  }
+
+  .contact-pill {
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    padding: 5px 14px;
   }
 
   .contact-center-card h2 {
-    font-size: clamp(1.8rem, 9vw, 2.4rem);
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    margin-bottom: 0;
   }
 
   .contact-intro {
-    font-size: 0.9rem;
-    margin-bottom: 24px;
+    font-size: 0.82rem;
+    margin: 10px auto 18px;
+    line-height: 1.55;
   }
 
   .contact-card-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 14px;
   }
 
-  /* Show profile panel first on mobile */
   .contact-profile-panel {
     order: -1;
   }
 
   .contact-orbit {
-    width: 130px;
-    height: 130px;
-    margin-bottom: 14px;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 10px;
   }
 
   .contact-avatar-large {
-    width: 88px;
-    height: 88px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .contact-profile-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .contact-role {
+    font-size: 0.68rem;
+    margin-bottom: 12px;
+  }
+
+  .contact-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 0.78rem;
   }
 
   .contact-info-panel {
-    padding: 16px;
+    padding: 12px;
   }
 
   .contact-info-item {
-    grid-template-columns: 36px 1fr;
-    gap: 10px;
-    padding: 10px 0;
+    grid-template-columns: 32px 1fr;
+    gap: 8px;
+    padding: 8px 0;
   }
 
   .contact-info-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.8rem;
+    width: 28px;
+    height: 28px;
+    font-size: 0.72rem;
+  }
+
+  .contact-info-item small {
+    font-size: 0.65rem;
+    margin-bottom: 2px;
   }
 
   .contact-info-item strong {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .contact-actions {
-    margin-top: 22px;
-    gap: 10px;
+    margin-top: 16px;
+    gap: 8px;
   }
 
   .contact-actions .btn,
@@ -485,13 +727,16 @@
 
   /* ── Footer ── */
   .site-footer {
-    padding: 24px 16px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
   }
 
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
     text-align: center;
+    width: 100%;
   }
 
   .footer-brand {
@@ -504,29 +749,12 @@
   }
 
   .footer-links a {
-    font-size: 0.82rem;
-    padding: 7px 9px;
+    font-size: 0.8rem;
+    padding: 6px 8px;
   }
 
   .footer-copy {
     justify-self: center;
-    font-size: 0.82rem;
-  }
-
-  /* ── Matrix section number ── */
-  .matrix-section-num {
-    font-size: 1.1rem;
-    top: -44px;
-  }
-
-  /* ── Action rows ── */
-  .action-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .action-row .btn {
-    width: 100%;
-    justify-content: center;
+    font-size: 0.8rem;
   }
 }
