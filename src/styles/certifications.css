@@ -117,3 +117,23 @@
   flex-wrap: wrap;
   gap: 12px; /* increase this */
 }
+/* =========================
+   CERTIFICATIONS — MOBILE
+========================= */
+@media (max-width: 480px) {
+  /* certifications-section padding-top override */
+  .certifications-section {
+    padding-top: 0;
+  }
+
+  /* Remove the desktop min-height that creates dead space */
+  .certification-card {
+    min-height: unset;
+  }
+
+  /* The ::before accent bar needs the card NOT to be flex
+     on mobile — override the desktop flex direction */
+  .certification-card {
+    display: block;
+  }
+}

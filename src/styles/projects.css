@@ -328,3 +328,34 @@
 .featured-card      { display: none; } /* replaced by proj-thesis-card */
 .project-columns    { display: none; } /* replaced by proj-groups */
 .project-card-media { display: none; }
+
+/* =========================
+   PROJECTS — MOBILE OVERRIDES
+========================= */
+@media (max-width: 480px) {
+
+  /* Tighten the mob heading so more space goes to content */
+  .projects-mobile .mob-section-head {
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+
+  .projects-mobile .mob-h2 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+    line-height: 0.95;
+  }
+
+  .projects-mobile .mob-eyebrow {
+    font-size: 0.58rem;
+    margin-bottom: 1px;
+  }
+
+  /* Accent top border on group boxes */
+  .projects-mobile .pgroup {
+    border-color: rgba(255,255,255,0.09);
+  }
+
+  .projects-mobile .pgroup:first-of-type {
+    border-color: rgba(184,255,87,0.15);
+  }
+}

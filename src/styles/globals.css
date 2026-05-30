@@ -286,3 +286,13 @@ label, summary, select,
 .project-card, .contact-method, .social-pill {
   cursor: url('/assets/pointer.png') 8 8, pointer;
 }
+
+/* =========================
+   MOBILE SCROLL LOCK
+========================= */
+@media (max-width: 480px) {
+  html, body {
+    height: 100svh;
+    overflow: hidden;
+  }
+}

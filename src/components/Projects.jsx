@@ -121,7 +121,6 @@ function Projects() {
           ══════════════════════════════════ */}
           <div className="projects-mobile">
             <div className="mob-section-head">
-              <span className="mob-eyebrow">Portfolio</span>
               <h2 className="mob-h2">Projects</h2>
             </div>
 

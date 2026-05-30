@@ -155,22 +155,7 @@
 .mobile-topbar { display: none; }
 
 @media (max-width: 480px) {
-  .mobile-topbar {
-    display: flex;
-    position: fixed;
-    top: 10px;
-    left: 12px;
-    right: 12px;
-    z-index: 200;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 14px;
-    border-radius: 18px;
-    background: rgba(4,4,4,0.93);
-    border: 1px solid rgba(184,255,87,0.13);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+  .mobile-topbar { display: flex !important; }
 
   /* Sidebar completely hidden on mobile */
   .sidebar { display: none !important; }
