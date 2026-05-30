@@ -9,6 +9,7 @@ function Hero({ resumeOpen, setResumeOpen }) {
         <div className="hero-orb hero-orb-2" aria-hidden="true" />
 
         <div className="hero-grid wide-shell">
+          {/* ── Copy ── */}
           <div className="hero-copy hero-copy-left">
             <div className="hero-chip-row">
               <span className="hero-chip">Portfolio</span>
@@ -38,41 +39,27 @@ function Hero({ resumeOpen, setResumeOpen }) {
                 </button>
 
                 <div className={`resume-menu ${resumeOpen ? 'show' : ''}`}>
-                 <a
-                    href="/assets/AntonioMonserrat_CV_ATS.pdf"
-                    download
-                    onClick={() => setCvOpen(false)}
-                  >
+                  <a href="/assets/AntonioMonserrat_CV_ATS.pdf" download onClick={() => setResumeOpen(false)}>
                     ATS Version
                   </a>
-
-                  <a
-                    href="/assets/AntonioMonserrat_CV_Designed.pdf"
-                    download
-                    onClick={() => setResumeOpen(false)}
-                  >
+                  <a href="/assets/AntonioMonserrat_CV_Designed.pdf" download onClick={() => setResumeOpen(false)}>
                     Designed Version
                   </a>
                 </div>
               </div>
 
               <a href="#projects" className="btn btn-ghost-accent btn-lg">
-                View Projects
-                <span>→</span>
+                View Projects <span>→</span>
               </a>
             </div>
           </div>
 
+          {/* ── Visual ── */}
           <div className="hero-visual">
             <div className="hero-visual-ring hero-visual-ring-1" aria-hidden="true" />
             <div className="hero-visual-ring hero-visual-ring-2" aria-hidden="true" />
-
             <div className="hero-portrait-card">
-              <img
-                src="/assets/profile-illustration.png"
-                alt="Neo portrait"
-                className="hero-portrait-image"
-              />
+              <img src="/assets/profile-illustration.png" alt="Neo portrait" className="hero-portrait-image" />
             </div>
           </div>
         </div>

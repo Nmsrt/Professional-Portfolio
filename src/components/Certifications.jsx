@@ -5,9 +5,16 @@ function Certifications() {
     <section id="certifications" className="section matrix-section certifications-section animate-on-scroll">
       <div className="wide-shell">
         <span className="matrix-section-num">03</span>
-        <div className="section-header center">
-          {/* <span className="eyebrow">Credentials</span> */}
+
+        {/* Desktop header */}
+        <div className="section-header center hide-mobile">
           <h2>Certifications</h2>
+        </div>
+
+        {/* Mobile header */}
+        <div className="mob-section-head show-mobile">
+          <span className="mob-eyebrow">Credentials</span>
+          <h2 className="mob-h2">Certs</h2>
         </div>
 
         <div className="certifications-grid">
@@ -24,18 +31,11 @@ function Certifications() {
 
               <div className="chip-row">
                 {cert.skills.map((skill) => (
-                  <span className="chip" key={skill}>
-                    {skill}
-                  </span>
+                  <span className="chip" key={skill}>{skill}</span>
                 ))}
               </div>
 
-              <a
-                className="certification-link"
-                href={cert.link}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="certification-link" href={cert.link} target="_blank" rel="noreferrer">
                 View Certificate →
               </a>
             </article>
