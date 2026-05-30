@@ -81,7 +81,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
     padding: 5px 8px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -91,29 +91,29 @@
       0 16px 48px rgba(0, 0, 0, 0.7);
   }
 
-  /* Every item: dim, no background */
+  /* Nav items: dim, minimal, no background */
   .mbn-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2px;
-    padding: 6px 4px 6px;
+    padding: 6px 10px;
     border-radius: 999px;
     color: rgba(255, 255, 255, 0.3);
     text-decoration: none;
-    flex: 1;
+    flex: 0 1 auto;   /* shrink-wrap, don't grow to fill */
     position: relative;
     transition: color 0.15s ease, background 0.15s ease;
     background: none;
+    white-space: nowrap;
   }
 
-  /* Active: green pill background + bright green text.
-     Applies equally to ALL items including Talk/contact.
-     No special-casing of any single item. */
+  /* Active: tight green pill around just the icon+label.
+     Same rule for every item — no Talk special-casing. */
   .mbn-item[data-active='true'] {
     color: #0a0a0a;
     background: var(--accent);
-    box-shadow: 0 0 14px rgba(184, 255, 87, 0.35);
+    box-shadow: 0 0 12px rgba(184, 255, 87, 0.4);
   }
 
   .mbn-icon {
@@ -124,11 +124,10 @@
   .mbn-label {
     font-size: 0.5rem;
     font-weight: 800;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
-  /* No dot needed — the pill background is the indicator */
   .mbn-dot { display: none; }
 
   /* ── Snap container ── */

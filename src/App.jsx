@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   experienceItems,
@@ -10,7 +10,6 @@ import {
 } from './data/data';
 
 import Navbar from './components/Navbar';
-import useNotifications from './useNotifications';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import TechStack from './components/TechStack';
@@ -20,94 +19,87 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  useNotifications();
+  const [menuOpen,       setMenuOpen]       = useState(false);
+  const [resumeOpen,     setResumeOpen]     = useState(false);
+  const [activeSection,  setActiveSection]  = useState('home');
+  const shellRef = useRef(null);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
+  /* ── Service worker + notification registration ── */
   useEffect(() => {
-    const sectionIds = [
-      'home',
-      'experience',
-      'tech',
-      'certifications',
-      'projects',
-      'contact'
-    ];
-
-    const onScroll = () => {
-      const bottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 10;
-
-      if (bottom) {
-        setActiveSection('contact');
-        return;
+    if (!('serviceWorker' in navigator) || !('Notification' in window)) return;
+    const register = async () => {
+      try {
+        const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        if (Notification.permission === 'default') await Notification.requestPermission();
+        const sw = reg.active || reg.installing || reg.waiting;
+        const target = sw || (await navigator.serviceWorker.ready).active;
+        if (target) target.postMessage('RESCHEDULE');
+      } catch (err) {
+        console.warn('[SW]', err);
       }
-
-      const y = window.scrollY + 180;
-      let current = 'home';
-
-      for (const id of sectionIds) {
-        const el = document.getElementById(id);
-
-        if (el && y >= el.offsetTop) {
-          current = id;
-        }
-      }
-
-      setActiveSection(current);
     };
-
-    onScroll();
-
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', onScroll);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
+    register();
   }, []);
 
+  /* ── Active section tracker ──
+     On mobile the snap scroll container is .site-shell (overflow-y: scroll).
+     On desktop it is the html element.
+     We listen on both and use IntersectionObserver as the source of truth
+     so we never have to measure scroll positions manually.
+  ── */
   useEffect(() => {
-    const animatedEls = document.querySelectorAll('.animate-on-scroll');
+    const sectionIds = ['home', 'experience', 'tech', 'certifications', 'projects', 'contact'];
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            setActiveSection(entry.target.id);
           }
         });
       },
       {
-        threshold: 0.15
+        // Fire when a section covers at least 50% of the viewport
+        threshold: 0.5,
+        // Use the snap container as root on mobile, viewport on desktop
+        root: null,
       }
     );
 
-    animatedEls.forEach((el) => observer.observe(el));
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
     return () => observer.disconnect();
   }, []);
 
+  /* ── Scroll-reveal animations ── */
+  useEffect(() => {
+    const els = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-visible'); }),
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  /* ── Body overflow lock when mobile sidebar open ── */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
   const navItems = [
-    ['home', 'Home'],
-    ['experience', 'Experience'],
-    ['tech', 'Tech'],
-    ['certifications', 'Certifications'],
-    ['projects', 'Projects'],
-    ['contact', 'Contact']
+    ['home',          'Home'],
+    ['experience',    'Experience'],
+    ['tech',          'Tech'],
+    ['certifications','Certifications'],
+    ['projects',      'Projects'],
+    ['contact',       'Contact'],
   ];
 
   const NavLinks = ({ mobile = false }) => (
@@ -126,15 +118,16 @@ export default function App() {
   );
 
   return (
-    <div className="site-shell">
-      <Navbar activeSection={activeSection}
+    <div className="site-shell" ref={shellRef}>
+      <Navbar
+        activeSection={activeSection}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         NavLinks={NavLinks}
       />
 
       <main>
-        <Hero resumeOpen={resumeOpen} setResumeOpen={setResumeOpen} />
+        <Hero   resumeOpen={resumeOpen} setResumeOpen={setResumeOpen} />
         <Experience />
         <TechStack />
         <Certifications />
