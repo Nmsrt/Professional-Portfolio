@@ -273,11 +273,11 @@
     gap: 0;
   }
 
-  /* Portrait zone — was 46svh, now 38svh to reduce top gap */
+  /* Portrait zone: fixed px so it doesn't balloon on tall screens */
   .hero-visual {
     flex: 0 0 auto;
-    height: 38svh;
-    display: flex; align-items: flex-end; justify-content: center;
+    height: 44svh;
+    display: flex; align-items: flex-start; justify-content: center;
     overflow: hidden;
     position: relative;
   }
@@ -296,19 +296,20 @@
   .hero-visual-ring-1, .hero-visual-ring-2 { display: none; }
 
   .hero-portrait-card {
-    position: relative; z-index: 1;
-    width: 80%; max-width: 300px;
-    height: 100%;
-    border-radius: 0;
-    background: transparent; box-shadow: none; border: none;
-    margin: 0 auto;
+  position: relative; z-index: 1;
+  width: 100%; max-width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent; box-shadow: none; border: none;
+  margin: 0 auto;
   }
   /* Remove the old ::before glow — replaced by ::after on .hero-visual */
   .hero-portrait-card::before { display: none; }
 
   .hero-portrait-image {
     width: 100%; height: 100%;
-    object-fit: contain; object-position: center top;
+    object-fit: cover;
+    object-position: center top;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
   }
 
