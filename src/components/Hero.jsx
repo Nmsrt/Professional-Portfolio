@@ -28,8 +28,8 @@ function Hero({ resumeOpen, setResumeOpen }) {
           <div className="hero-copy hero-copy-left">
             <div className="hero-chip-row">
               {/* Removing Temporarily */}
-              <span className="hero-chip">BS Computer Science</span>
-              <span className="hero-chip hero-chip-muted"> De La Salle University</span>
+              {/* <span className="hero-chip">BS Computer Science</span> */}
+              {/* <span className="hero-chip hero-chip-muted"> De La Salle University</span> */}
             </div>
 
             <h1 className="hero-title hero-title-main">
