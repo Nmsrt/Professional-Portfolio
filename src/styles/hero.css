@@ -424,8 +424,8 @@
   .hero-portrait-card {
     position: relative;
     z-index: 1;
-    width: 68%;
-    max-width: 240px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     min-height: unset;
     border-radius: 0;

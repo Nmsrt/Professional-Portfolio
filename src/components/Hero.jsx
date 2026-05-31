@@ -32,7 +32,7 @@ function Hero({ resumeOpen, setResumeOpen }) {
             </div>
 
             <h1 className="hero-title hero-title-main">
-              Hello<br />World<span className="hero-accent">!</span>
+              Hello World<span className="hero-accent">!</span>
             </h1>
 
             <h2 className="hero-title hero-title-sub">I&apos;m Neo</h2>
