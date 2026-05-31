@@ -173,9 +173,9 @@
    PROJECTS — DESKTOP
 ========================= */
 
-.projects-desktop { width: 100%; }
+.projects-desktop { width: 100%; display: flex; flex-direction: column; }
 
-/* Three-column grid: [thesis card] [groups side by side] */
+/* Two-column grid: [thesis card] [groups] */
 .proj-desktop-grid {
   display: grid;
   grid-template-columns: 280px 1fr;

@@ -18,8 +18,8 @@
   .sidebar          { display: flex; }
   .mbn              { display: none !important; }
   .projects-mobile  { display: none !important; }
-  .projects-desktop { display: block !important; }
-  .proj-modal-backdrop { display: none !important; }
+  .projects-desktop { display: flex !important; }
+  /* proj-modal-backdrop is position:fixed — let it show on desktop */
   .topbar-shell     { display: none !important; }
 
   /* ── Section heading ── */
@@ -117,25 +117,74 @@
   /* ── PROJECTS (desktop) ── */
   .badge, .badge-soft { font-size: 0.74rem; padding: 4px 10px; }
 
-  .proj-desktop-grid { grid-template-columns: 300px 1fr; gap: 18px; }
+  /* projects-desktop fills the remaining height of the section shell */
+  .projects-desktop {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .projects-desktop .section-header { flex-shrink: 0; margin-bottom: 16px; }
 
-  .proj-thesis-card-img { height: 170px; }
-  .proj-thesis-card-body { padding: 16px; gap: 10px; }
-  .proj-thesis-card-body h3 { font-size: 1.05rem; }
-  .proj-thesis-card-body p  { font-size: 0.82rem; }
-  .proj-thesis-card-links .btn { min-height: 34px; padding: 6px 12px; font-size: 0.78rem; }
+  /* Two-column grid stretches to fill available height */
+  .proj-desktop-grid {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
 
-  .proj-groups { gap: 14px; }
-  .proj-groups .pgroup-list { max-height: 200px; }
+  /* Thesis card fills full column height */
+  .proj-thesis-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .proj-thesis-card-img { height: 220px; flex-shrink: 0; }
+  .proj-thesis-card-body {
+    padding: 20px;
+    gap: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-thesis-card-body h3 { font-size: 1.2rem; }
+  .proj-thesis-card-body p  { font-size: 0.86rem; line-height: 1.65; flex: 1; }
+  .proj-thesis-card-links { margin-top: auto; }
+  .proj-thesis-card-links .btn { min-height: 38px; padding: 8px 14px; font-size: 0.82rem; }
+
+  /* Groups column: flex column, each pgroup shares height equally */
+  .proj-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    min-height: 0;
+  }
+  .proj-groups .pgroup {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-groups .pgroup-list {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+  }
 
   .pgroup { border-radius: 16px; }
-  .pgroup-head { padding: 12px 14px 10px; }
+  .pgroup-head { padding: 14px 16px 12px; flex-shrink: 0; }
   .pgroup-label { font-size: 0.72rem; }
 
-  .prow { padding: 10px 10px; gap: 12px; }
-  .prow-thumb { width: 40px; height: 40px; border-radius: 9px; }
-  .prow-title { font-size: 0.88rem; }
-  .prow-meta  { font-size: 0.7rem; }
+  .prow { padding: 12px 12px; gap: 12px; }
+  .prow-thumb { width: 42px; height: 42px; border-radius: 9px; }
+  .prow-title { font-size: 0.9rem; }
+  .prow-meta  { font-size: 0.72rem; }
   .prow-arrow { font-size: 1.3rem; }
 
   /* ── CONTACT ── */
@@ -277,8 +326,14 @@
   .section-header { margin-bottom: 12px; }
   .section-header h2 { font-size: clamp(1.8rem,9vw,2.4rem); }
 
+  /* Tech section: center the whole block vertically */
+  #tech > .wide-shell {
+    justify-content: center;
+  }
+
   .tech-layout {
-    flex: 1; min-height: 0; overflow-y: auto;
+    flex: 0 0 auto; /* don't stretch — let the shell center it */
+    overflow-y: visible;
     gap: 0; scrollbar-width: none;
     display: block;
   }
@@ -583,6 +638,8 @@
     to   { transform: translateY(0); opacity: 1; }
   }
 
+  .prow-meta { display: none;}
+
   /* ── CONTACT ── */
   .contact-section { display: flex; align-items: center; }
   .contact-section > .wide-shell { padding-top: 16px; padding-bottom: 72px; justify-content: center; overflow-y: auto; scrollbar-width: none; }
@@ -605,7 +662,40 @@
   .contact-info-item strong { font-size: 0.76rem; }
   .contact-actions { margin-top: 10px; gap: 7px; }
   .contact-actions .btn, .contact-dropdown { width: 100%; }
-  .resume-menu { width: 100%; }
+
+  /* ── Resume dropdown menus on mobile ── */
+
+  /* Hero dropdown: anchored to button width, pops upward */
+  .hero-actions .resume-dropdown {
+    position: relative;
+  }
+  .hero-actions .resume-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: calc(100% + 6px);
+    border-top: 1px solid rgba(184,255,87,0.22);
+    border-bottom: none;
+    border-radius: 12px;
+    min-width: 0;
+  }
+
+  /* Contact dropdown: full width of its container, pops upward */
+  .contact-dropdown {
+    position: relative;
+  }
+  .contact-dropdown .resume-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: calc(100% + 6px);
+    border-top: 1px solid rgba(184,255,87,0.22);
+    border-bottom: none;
+    border-radius: 12px;
+    min-width: 0;
+  }
 
   /* ── FOOTER ── */
   .site-footer { padding: 0 16px; display: flex; align-items: center; justify-content: center; }

@@ -2,7 +2,7 @@ import { certifications } from '../data/data';
 
 function Certifications() {
   return (
-    <section id="certifications" className="section matrix-section certifications-section animate-on-scroll">
+    <section id="certifications" className="section matrix-section animate-on-scroll">
       <div className="wide-shell">
         <span className="matrix-section-num">03</span>
 

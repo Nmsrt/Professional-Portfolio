@@ -6,8 +6,7 @@ function Experience() {
       <div className="wide-shell">
         <span className="matrix-section-num">01</span>
 
-        <div className="experience-heading">
-          <span className="eyebrow">Journey</span>
+        <div className="section-header center">
           <h2>My career &amp; experience</h2>
         </div>
 
