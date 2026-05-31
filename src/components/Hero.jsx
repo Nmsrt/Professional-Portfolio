@@ -27,8 +27,9 @@ function Hero({ resumeOpen, setResumeOpen }) {
           {/* ── RIGHT: copy (mobile: bottom half) ── */}
           <div className="hero-copy hero-copy-left">
             <div className="hero-chip-row">
-              <span className="hero-chip">Portfolio</span>
-              <span className="hero-chip hero-chip-muted">BS CS · DLSU</span>
+              {/* Removing Temporarily */}
+              <span className="hero-chip">BS Computer Science</span>
+              <span className="hero-chip hero-chip-muted"> De La Salle University</span>
             </div>
 
             <h1 className="hero-title hero-title-main">
@@ -38,7 +39,7 @@ function Hero({ resumeOpen, setResumeOpen }) {
             <h2 className="hero-title hero-title-sub">I&apos;m Neo</h2>
 
             <p className="hero-role">
-              Computer Science student building thoughtful software.
+              A Computer Science student building thoughtful software.
             </p>
 
             <div className="hero-actions hero-actions-acid">
