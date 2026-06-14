@@ -20,8 +20,8 @@
   --gold:      #f5a524;
   --warm:      #ff7a33;
 
-  --text:      #d6e2ff;
-  --muted:     #8390ba;
+  --text:      #dce8ff;
+  --muted:     #a8b8d0;
   --white:     #eef4ff;
 
   --display: 'Chakra Petch', system-ui, sans-serif;
@@ -150,7 +150,7 @@ main,
   margin-top: 1.2rem;
   max-width: 60ch;
 }
-.body { color: var(--muted); margin-top: 1rem; max-width: 64ch; }
+.body { color: var(--muted); margin-top: 1rem; max-width: 64ch; font-size: 1.02rem; font-weight: 500; line-height: 1.75; }
 
 /* Warp streak between sections */
 .warp-streak {
@@ -398,7 +398,7 @@ main,
   color: var(--white);
   margin-bottom: 0.4rem;
 }
-.hero-tagline { color: var(--muted); max-width: 52ch; font-size: 1.05rem; }
+.hero-tagline { color: var(--text); max-width: 52ch; font-size: 1.08rem; font-weight: 500; }
 
 .hero-actions {
   display: flex;

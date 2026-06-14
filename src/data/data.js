@@ -9,11 +9,11 @@ export const experienceItems = [
   },
   {
     year: '2024–2026',
-    title: 'DrumXRoll Thesis Project',
+    title: 'Undergraduate Thesis Project',
     company: 'De La Salle University · HXIL',
     location: 'Manila, Philippines',
     text:
-      'Developing an XR drum learning system that explores piano-roll visualizations for teaching drum improvisation using Unity, Meta Quest, and a physical e-drum setup.'
+      'Developing an educational software system that explores interactive visualizations for teaching musical improvisation, built with Unity and a physical hardware setup.'
   },
   {
     year: '2021–Present',

@@ -24,7 +24,7 @@ export const profile = {
   role: 'Computer Science Student & Software Engineer',
   discipline: 'BS Computer Science · Software Technology',
   affiliation: 'De La Salle University',
-  tagline: 'Building thoughtful software across XR, web, and intelligent systems.',
+  tagline: 'Building thoughtful software across web, systems, and machine learning.',
   // Coordinates are decorative HUD flavor (Manila, PH) — not used for anything real.
   coordinates: '14.5995° N · 120.9842° E',
   brand: '/assets/Brand.png',
@@ -38,7 +38,7 @@ export const profile = {
 
 /* ── Mission briefing (About) ────────────────────────────────────────────────
  * Space-themed phrasing wrapped around accurate facts pulled from the bio +
- * experience data: CS student at DLSU, VRXE internship, DrumXRoll XR thesis,
+ * experience data: CS student at DLSU, VRXE internship,
  * and a build history spanning web, desktop, and machine learning.            */
 export const about = {
   label: 'Mission Briefing',
@@ -46,13 +46,12 @@ export const about = {
   lead:
     "I'm Neo — a Computer Science student at De La Salle University specializing in Software Technology, currently logging flight hours as an intern at VRXE.",
   paragraphs: [
-    'My work spans extended reality, web platforms, and machine learning. I care about software that is thoughtful, well-built, and genuinely useful — from immersive XR experiences down to the reliability of the systems underneath.',
-    "I'm currently piloting DrumXRoll, my undergraduate thesis: an XR drum-learning system built on Unity and Meta Quest that explores piano-roll visualizations for teaching drum improvisation."
+    'My work spans web platforms, machine learning, and software systems. I care about software that is thoughtful, well-built, and genuinely useful — from clean interfaces down to the reliability of the systems underneath.',
+    'My projects tend to be practical: tools people can actually use, systems that hold up under real conditions.'
   ],
   stats: [
-    { value: '5+', label: 'Years building' },
-    { value: 'XR', label: 'Thesis domain' },
-    { value: '11', label: 'Logged missions' }
+    { value: '2021', label: 'Active since' },
+    { value: 'CS', label: 'Discipline' }
   ]
 };
 
