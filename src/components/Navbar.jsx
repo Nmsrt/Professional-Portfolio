@@ -32,7 +32,7 @@ function Navbar({ activeId }) {
         </nav>
 
         <a href="#transmit" className="hud-cta">
-          Hail&nbsp;Ship <span aria-hidden="true">↗</span>
+          Contact <span aria-hidden="true">↗</span>
         </a>
       </header>
 

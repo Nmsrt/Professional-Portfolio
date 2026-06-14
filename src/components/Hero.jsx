@@ -62,7 +62,7 @@ function Hero() {
               onClick={() => setResumeOpen((v) => !v)}
               aria-expanded={resumeOpen}
             >
-              Manifest <span className="resume-caret" aria-hidden="true" />
+              Resume <span className="resume-caret" aria-hidden="true" />
             </button>
             <div className="resume-menu" role="menu">
               {profile.resumes.map((r) => (
