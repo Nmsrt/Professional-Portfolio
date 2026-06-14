@@ -685,6 +685,5 @@ export default class SpaceScene {
       }
     });
     this.renderer.dispose();
-    this.renderer.forceContextLoss?.();
   }
 }
