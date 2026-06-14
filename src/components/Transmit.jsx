@@ -1,0 +1,104 @@
+import { useState } from 'react';
+import { transmission, profile } from '../data/content';
+
+const CHANNEL_GLYPH = {
+  Phone: '☎',
+  Email: '✉',
+  LinkedIn: '⬡',
+  GitHub: '◈'
+};
+
+/* Open Channel — contact framed as sending a transmission.
+   The composer opens the user's mail client (no backend required). */
+function Transmit() {
+  const [form, setForm] = useState({ name: '', message: '' });
+
+  const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  const send = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(
+      `Transmission from ${form.name || 'a fellow traveler'}`
+    );
+    const body = encodeURIComponent(form.message || '');
+    window.location.href = `mailto:${transmission.primaryEmail}?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <section id="transmit" className="section transmit">
+      <span className="warp-streak" data-warp aria-hidden="true" />
+
+      <div className="shell transmit-grid">
+        <div className="transmit-intro">
+          <p className="section-label" data-reveal>
+            <span className="label-glyph">◈</span> {transmission.label}
+          </p>
+          <h2 className="section-heading" data-reveal>
+            {transmission.heading}
+          </h2>
+          <p className="lead" data-reveal>
+            {transmission.lead}
+          </p>
+
+          <ul className="channels" data-reveal-group>
+            {transmission.channels.map((ch) => (
+              <li key={ch.label}>
+                <a
+                  href={ch.href}
+                  target={ch.href.startsWith('http') ? '_blank' : undefined}
+                  rel={ch.href.startsWith('http') ? 'noreferrer' : undefined}
+                  className="channel"
+                >
+                  <span className="channel-glyph" aria-hidden="true">
+                    {CHANNEL_GLYPH[ch.label] || '•'}
+                  </span>
+                  <span className="channel-text">
+                    <small>{ch.label}</small>
+                    <strong>{ch.value}</strong>
+                  </span>
+                  <span className="channel-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Transmission composer */}
+        <form className="composer" onSubmit={send} data-reveal="right">
+          <div className="composer-head">
+            <span className="composer-led" /> CHANNEL OPEN · {profile.coordinates}
+          </div>
+
+          <label className="field">
+            <span>Your callsign</span>
+            <input
+              type="text"
+              value={form.name}
+              onChange={update('name')}
+              placeholder="Who's hailing?"
+              autoComplete="name"
+            />
+          </label>
+
+          <label className="field">
+            <span>Message payload</span>
+            <textarea
+              rows="5"
+              value={form.message}
+              onChange={update('message')}
+              placeholder="Compose your transmission…"
+            />
+          </label>
+
+          <button type="submit" className="btn btn-primary btn-block">
+            Send Transmission <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+export default Transmit;

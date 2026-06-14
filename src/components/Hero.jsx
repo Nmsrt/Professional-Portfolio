@@ -1,84 +1,86 @@
-function Hero({ resumeOpen, setResumeOpen }) {
+import { useState } from 'react';
+import { profile } from '../data/content';
+
+/* Launch sequence — the entrance. Text materializes from masks via GSAP. */
+function Hero() {
+  const [resumeOpen, setResumeOpen] = useState(false);
+
   return (
-    <section id="home" className="hero-section animate-on-scroll">
-      <div className="hero-frame">
-        {/* Keep all ambient layers — green highlight restored */}
-        <div className="hero-noise"        aria-hidden="true" />
-        <div className="hero-grid-overlay" aria-hidden="true" />
-        <div className="hero-spotlight"    aria-hidden="true" />
-        <div className="hero-orb hero-orb-1" aria-hidden="true" />
-        <div className="hero-orb hero-orb-2" aria-hidden="true" />
+    <section id="launch" className="section hero">
+      {/* HUD telemetry corners */}
+      <div className="hero-hud hero-hud-tl" data-hud aria-hidden="true">
+        <span className="tlm-key">SYS</span>
+        <span className="tlm-val">ALL NOMINAL</span>
+      </div>
+      <div className="hero-hud hero-hud-tr" data-hud aria-hidden="true">
+        <span className="tlm-key">ORIGIN</span>
+        <span className="tlm-val">{profile.coordinates}</span>
+      </div>
 
-        <div className="hero-grid wide-shell">
+      <div className="hero-inner">
+        <p className="eyebrow" data-hero-fade>
+          <span className="eyebrow-dot" /> {profile.callsign} · INITIATING LAUNCH SEQUENCE
+        </p>
 
-          {/* ── LEFT: portrait (mobile: top half) ── */}
-          <div className="hero-visual">
-            <div className="hero-visual-ring hero-visual-ring-1" aria-hidden="true" />
-            <div className="hero-visual-ring hero-visual-ring-2" aria-hidden="true" />
-            <div className="hero-portrait-card">
-              <img
-                src="/assets/profile-illustration.png"
-                alt="Neo portrait"
-                className="hero-portrait-image"
-              />
+        <h1 className="hero-title">
+          <span className="line-mask">
+            <span className="line line-sm" data-hero-line>
+              Hello, voyager. I&apos;m
+            </span>
+          </span>
+          <span className="line-mask">
+            <span className="line line-xl" data-hero-line>
+              NEO
+            </span>
+          </span>
+          <span className="line-mask">
+            <span className="line line-xl line-outline" data-hero-line>
+              MONSERRAT
+            </span>
+          </span>
+        </h1>
+
+        <p className="hero-role" data-hero-fade>
+          {profile.role}
+        </p>
+        <p className="hero-tagline" data-hero-fade>
+          {profile.tagline}
+        </p>
+
+        <div className="hero-actions" data-hero-fade>
+          <a href="#briefing" className="btn btn-primary">
+            Begin Journey <span aria-hidden="true">↓</span>
+          </a>
+          <a href="#missions" className="btn btn-ghost">
+            View Missions <span aria-hidden="true">→</span>
+          </a>
+
+          <div className={`resume ${resumeOpen ? 'open' : ''}`}>
+            <button
+              type="button"
+              className="btn btn-ghost resume-trigger"
+              onClick={() => setResumeOpen((v) => !v)}
+              aria-expanded={resumeOpen}
+            >
+              Manifest <span className="resume-caret" aria-hidden="true" />
+            </button>
+            <div className="resume-menu" role="menu">
+              {profile.resumes.map((r) => (
+                <a key={r.href} href={r.href} download role="menuitem" onClick={() => setResumeOpen(false)}>
+                  {r.label}
+                </a>
+              ))}
             </div>
           </div>
-
-          {/* ── RIGHT: copy (mobile: bottom half) ── */}
-          <div className="hero-copy hero-copy-left">
-            <div className="hero-chip-row">
-              {/* Removing Temporarily */}
-              {/* <span className="hero-chip">BS Computer Science</span> */}
-              {/* <span className="hero-chip hero-chip-muted"> De La Salle University</span> */}
-            </div>
-
-            <h1 className="hero-title hero-title-main">
-              Hello World!
-            </h1>
-
-            <h2 className="hero-title hero-title-sub">I&apos;m Neo</h2>
-
-            <p className="hero-role">
-              A Computer Science student building thoughtful software.
-            </p>
-
-            <div className="hero-actions hero-actions-acid">
-              <div className="resume-dropdown">
-                <button
-                  type="button"
-                  className="btn btn-accent btn-lg resume-btn"
-                  onClick={() => setResumeOpen(!resumeOpen)}
-                >
-                  <span>↓</span> Resume
-                  <span className={`resume-chevron ${resumeOpen ? 'open' : ''}`} />
-                </button>
-
-                <div className={`resume-menu ${resumeOpen ? 'show' : ''}`}>
-                  <a
-                    href="/assets/AntonioMonserrat_CV_ATS.pdf"
-                    download
-                    onClick={() => setResumeOpen(false)}
-                  >
-                    ATS Version
-                  </a>
-                  <a
-                    href="/assets/AntonioMonserrat_CV_Designed.pdf"
-                    download
-                    onClick={() => setResumeOpen(false)}
-                  >
-                    Designed Version
-                  </a>
-                </div>
-              </div>
-
-              <a href="#projects" className="btn btn-ghost-accent btn-lg">
-                Projects <span>→</span>
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
+
+      <a href="#briefing" className="scroll-cue" data-hero-cue aria-label="Scroll to begin">
+        <span>SCROLL TO ENGAGE</span>
+        <span className="scroll-cue-track">
+          <span className="scroll-cue-dot" />
+        </span>
+      </a>
     </section>
   );
 }
