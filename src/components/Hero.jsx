@@ -7,16 +7,6 @@ function Hero() {
 
   return (
     <section id="launch" className="section hero">
-      {/* HUD telemetry corners */}
-      <div className="hero-hud hero-hud-tl" data-hud aria-hidden="true">
-        <span className="tlm-key">SYS</span>
-        <span className="tlm-val">ALL NOMINAL</span>
-      </div>
-      <div className="hero-hud hero-hud-tr" data-hud aria-hidden="true">
-        <span className="tlm-key">ORIGIN</span>
-        <span className="tlm-val">{profile.coordinates}</span>
-      </div>
-
       <div className="hero-inner">
         <p className="eyebrow" data-hero-fade>
           <span className="eyebrow-dot" /> {profile.callsign} · INITIATING LAUNCH SEQUENCE

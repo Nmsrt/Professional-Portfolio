@@ -5,8 +5,6 @@ import { about, profile, flightLog } from '../data/content';
 function About() {
   return (
     <section id="briefing" className="section briefing">
-      <span className="warp-streak" data-warp aria-hidden="true" />
-
       <div className="shell briefing-grid">
         {/* Holographic portrait viewport */}
         <div className="viewport" data-reveal="left" data-parallax="0.12">

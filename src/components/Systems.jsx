@@ -5,8 +5,6 @@ import { systems } from '../data/content';
 function Systems() {
   return (
     <section id="systems" className="section systems">
-      <span className="warp-streak" data-warp aria-hidden="true" />
-
       <div className="shell">
         <div className="section-head">
           <p className="section-label" data-reveal>

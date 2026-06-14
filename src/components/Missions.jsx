@@ -11,12 +11,11 @@ function MissionCard({ dest, index, tilt }) {
     const rect = ref.current.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
-    const rx = (0.5 - py) * 8;
-    const ry = (px - 0.5) * 10;
+    // Gentle tilt only — spotlight overlay removed for a calmer hover.
+    const rx = (0.5 - py) * 4;
+    const ry = (px - 0.5) * 5;
     ref.current.style.setProperty('--rx', `${rx}deg`);
     ref.current.style.setProperty('--ry', `${ry}deg`);
-    ref.current.style.setProperty('--mx', `${px * 100}%`);
-    ref.current.style.setProperty('--my', `${py * 100}%`);
   };
 
   const reset = () => {
@@ -58,8 +57,6 @@ function Missions() {
 
   return (
     <section id="missions" className="section missions">
-      <span className="warp-streak" data-warp aria-hidden="true" />
-
       <div className="shell">
         <div className="section-head">
           <p className="section-label" data-reveal>

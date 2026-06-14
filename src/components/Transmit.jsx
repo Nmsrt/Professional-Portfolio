@@ -26,8 +26,6 @@ function Transmit() {
 
   return (
     <section id="transmit" className="section transmit">
-      <span className="warp-streak" data-warp aria-hidden="true" />
-
       <div className="shell transmit-grid">
         <div className="transmit-intro">
           <p className="section-label" data-reveal>
