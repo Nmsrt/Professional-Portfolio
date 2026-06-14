@@ -1,69 +1,57 @@
-function Navbar({ menuOpen, setMenuOpen, activeSection }) {
-  const navItems = [
-    ['home',          '⌂',  'Home'],
-    ['experience',    '◈',  'Exp'],
-    ['tech',          '{}', 'Tech'],
-    ['certifications','✦',  'Certs'],
-    ['projects',      '▦',  'Work'],
-    ['contact',       '✉',  'Talk'],
-  ];
+import { profile, navItems } from '../data/content';
 
+/* HUD navigation: a top command bar (desktop) + a compact waypoint dock (mobile). */
+function Navbar({ activeId }) {
   return (
     <>
-      {/* ── DESKTOP SIDEBAR (display:none on mobile via CSS) ── */}
-      <aside className="sidebar" aria-label="Primary navigation">
-        <a href="#home" className="sidebar-brand" aria-label="Neo Monserrat home">
-          <div className="sidebar-avatar">
-            <img src="/assets/Brand.png" alt="Neo" />
-          </div>
-          <div className="sidebar-brand-text">
-            <strong>Neo</strong>
-            <span>Portfolio</span>
-          </div>
+      <header className="hud-bar" data-hud>
+        <a href="#launch" className="hud-brand" aria-label={`${profile.name} — home`}>
+          <span className="hud-brand-mark">
+            <img src={profile.brand} alt="" aria-hidden="true" />
+          </span>
+          <span className="hud-brand-text">
+            <strong>NEO</strong>
+            <small>VOYAGER&nbsp;LOG</small>
+          </span>
         </a>
 
-        <nav className="sidebar-nav">
-          {navItems.map(([id, icon, label]) => (
+        <nav className="hud-nav" aria-label="Primary">
+          {navItems.map((item) => (
             <a
-              key={id}
-              href={`#${id}`}
-              className={`sidebar-link${activeSection === id ? ' is-active' : ''}`}
-              aria-label={label}
-              aria-current={activeSection === id ? 'page' : undefined}
+              key={item.id}
+              href={`#${item.id}`}
+              className={`hud-link${activeId === item.id ? ' is-active' : ''}`}
+              aria-current={activeId === item.id ? 'true' : undefined}
             >
-              <span className="sidebar-link-icon">{icon}</span>
-              <span className="sidebar-link-label">{label}</span>
-              {activeSection === id && <span className="sidebar-link-bar" aria-hidden="true" />}
+              <span className="hud-link-glyph" aria-hidden="true">
+                {item.glyph}
+              </span>
+              <span className="hud-link-label">{item.label}</span>
             </a>
           ))}
         </nav>
 
-        <div className="sidebar-footer">
-          <a href="#contact" className="sidebar-cta">
-            Let&apos;s Talk <span>→</span>
-          </a>
-          <p className="sidebar-copy">© {new Date().getFullYear()}</p>
-        </div>
-      </aside>
+        <a href="#transmit" className="hud-cta">
+          Hail&nbsp;Ship <span aria-hidden="true">↗</span>
+        </a>
+      </header>
 
-      {/* ── MOBILE BOTTOM NAV ONLY (display:none on desktop via CSS) ── */}
-      <nav className="mbn" aria-label="Mobile navigation">
-        {navItems.map(([id, icon, label]) => {
-          const active = activeSection === id;
-          return (
-            <a
-              key={id}
-              href={`#${id}`}
-              className="mbn-item"
-              data-active={active ? 'true' : undefined}
-              aria-label={label}
-              aria-current={active ? 'page' : undefined}
-            >
-              <span className="mbn-icon">{icon}</span>
-              <span className="mbn-label">{label}</span>
-            </a>
-          );
-        })}
+      {/* Mobile waypoint dock */}
+      <nav className="dock" aria-label="Section navigation">
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`dock-item${activeId === item.id ? ' is-active' : ''}`}
+            aria-label={item.label}
+            aria-current={activeId === item.id ? 'true' : undefined}
+          >
+            <span className="dock-glyph" aria-hidden="true">
+              {item.glyph}
+            </span>
+            <span className="dock-label">{item.label}</span>
+          </a>
+        ))}
       </nav>
     </>
   );

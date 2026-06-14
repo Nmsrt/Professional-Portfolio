@@ -1,42 +1,33 @@
+import { profile, footer, transmission } from '../data/content';
+
 function Footer({ year }) {
   return (
     <footer className="site-footer">
-      <div className="wide-shell footer-inner">
-        <div className="footer-brand">
-          <div className="brand-avatar">
-            <img src="/assets/Brand.png" alt="Neo" />
-          </div>
-
-          <div>
-            <div className="footer-name">Neo Monserrat</div>
-            <div className="footer-meta">
-              BS Computer Science · Software Technology
-            </div>
-          </div>
+      <div className="shell footer-inner">
+        <div className="footer-sign">
+          <span className="footer-led" aria-hidden="true" />
+          <strong>{footer.sign}</strong>
         </div>
 
-        <nav className="footer-links" aria-label="Footer navigation">
-          <a href="tel:+639276646821">Phone</a>
-          <a href="mailto:neo.monserrat@gmail.com">Email</a>
+        <div className="footer-id">
+          <span className="footer-name">{profile.name}</span>
+          <span className="footer-meta">{footer.meta}</span>
+        </div>
 
-          <a
-            href="https://www.linkedin.com/in/antonio-enrique-monserrat"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/NeoMonserrat"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+        <nav className="footer-links" aria-label="Footer">
+          {transmission.channels.map((ch) => (
+            <a
+              key={ch.label}
+              href={ch.href}
+              target={ch.href.startsWith('http') ? '_blank' : undefined}
+              rel={ch.href.startsWith('http') ? 'noreferrer' : undefined}
+            >
+              {ch.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="footer-copy">© {year}</div>
+        <div className="footer-copy">© {year} · {profile.fullName}</div>
       </div>
     </footer>
   );
