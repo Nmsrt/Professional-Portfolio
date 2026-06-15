@@ -11,7 +11,7 @@ function Navbar({ activeId }) {
           </span>
           <span className="hud-brand-text">
             <strong>NEO</strong>
-            <small>VOYAGER&nbsp;LOG</small>
+            <small>MONSERRAT</small>
           </span>
         </a>
 

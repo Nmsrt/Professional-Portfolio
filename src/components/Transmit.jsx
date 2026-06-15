@@ -18,7 +18,7 @@ function Transmit() {
   const send = (e) => {
     e.preventDefault();
     const subject = encodeURIComponent(
-      `Transmission from ${form.name || 'a fellow traveler'}`
+      `Message from ${form.name || 'your portfolio'}`
     );
     const body = encodeURIComponent(form.message || '');
     window.location.href = `mailto:${transmission.primaryEmail}?subject=${subject}&body=${body}`;
@@ -66,32 +66,32 @@ function Transmit() {
         {/* Transmission composer */}
         <form className="composer" onSubmit={send} data-reveal="right">
           <div className="composer-head">
-            <span className="composer-led" /> CHANNEL OPEN · {profile.coordinates}
+            <span className="composer-led" /> AVAILABLE · {profile.coordinates}
           </div>
 
           <label className="field">
-            <span>Your callsign</span>
+            <span>Your name</span>
             <input
               type="text"
               value={form.name}
               onChange={update('name')}
-              placeholder="Who's hailing?"
+              placeholder="Your name"
               autoComplete="name"
             />
           </label>
 
           <label className="field">
-            <span>Message payload</span>
+            <span>Message</span>
             <textarea
               rows="5"
               value={form.message}
               onChange={update('message')}
-              placeholder="Compose your transmission…"
+              placeholder="Your message…"
             />
           </label>
 
           <button type="submit" className="btn btn-primary btn-block">
-            Send Transmission <span aria-hidden="true">↗</span>
+            Send Message <span aria-hidden="true">↗</span>
           </button>
         </form>
       </div>

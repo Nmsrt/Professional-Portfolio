@@ -44,7 +44,7 @@ function MissionCard({ dest, index, tilt }) {
         <p className="mission-meta">{dest.meta}</p>
         <p className="mission-summary">{dest.summary}</p>
         <span className="mission-open">
-          Open coordinates <span aria-hidden="true">↗</span>
+          View project <span aria-hidden="true">↗</span>
         </span>
       </div>
     </a>
@@ -65,9 +65,11 @@ function Missions() {
           <h2 className="section-heading" data-reveal>
             {missions.heading}
           </h2>
-          <p className="lead" data-reveal>
-            {missions.lead}
-          </p>
+          {missions.lead && (
+            <p className="lead" data-reveal>
+              {missions.lead}
+            </p>
+          )}
         </div>
 
         {missions.clusters.map((cluster) => (

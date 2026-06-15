@@ -18,11 +18,11 @@ function About() {
           </div>
           <div className="viewport-meta">
             <span>
-              <small>PILOT</small>
+              <small>NAME</small>
               <strong>{profile.fullName}</strong>
             </span>
             <span>
-              <small>CLEARANCE</small>
+              <small>PROGRAM</small>
               <strong>{profile.discipline}</strong>
             </span>
           </div>

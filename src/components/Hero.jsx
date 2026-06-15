@@ -9,13 +9,13 @@ function Hero() {
     <section id="launch" className="section hero">
       <div className="hero-inner">
         <p className="eyebrow" data-hero-fade>
-          <span className="eyebrow-dot" /> {profile.callsign} · INITIATING LAUNCH SEQUENCE
+          <span className="eyebrow-dot" /> {profile.callsign}
         </p>
 
         <h1 className="hero-title">
           <span className="line-mask">
             <span className="line line-sm" data-hero-line>
-              Hello, voyager. I&apos;m
+              Hello, I&apos;m
             </span>
           </span>
           <span className="line-mask">
@@ -42,7 +42,7 @@ function Hero() {
             Begin Journey <span aria-hidden="true">↓</span>
           </a>
           <a href="#missions" className="btn btn-ghost">
-            View Missions <span aria-hidden="true">→</span>
+            View Projects <span aria-hidden="true">→</span>
           </a>
 
           <div className={`resume ${resumeOpen ? 'open' : ''}`}>
@@ -66,7 +66,7 @@ function Hero() {
       </div>
 
       <a href="#briefing" className="scroll-cue" data-hero-cue aria-label="Scroll to begin">
-        <span>SCROLL TO ENGAGE</span>
+        <span>SCROLL</span>
         <span className="scroll-cue-track">
           <span className="scroll-cue-dot" />
         </span>

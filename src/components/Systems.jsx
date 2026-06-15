@@ -13,9 +13,11 @@ function Systems() {
           <h2 className="section-heading" data-reveal>
             {systems.heading}
           </h2>
-          <p className="lead" data-reveal>
-            {systems.lead}
-          </p>
+          {systems.lead && (
+            <p className="lead" data-reveal>
+              {systems.lead}
+            </p>
+          )}
         </div>
 
         <div className="modules" data-reveal-group>
@@ -24,7 +26,7 @@ function Systems() {
               <header className="module-head">
                 <span className="module-code">{mod.code}</span>
                 <span className="module-status">
-                  <span className="status-led" /> ONLINE
+                  <span className="status-led" /> ACTIVE
                 </span>
               </header>
               <h3 className="module-name">{mod.system}</h3>
@@ -52,7 +54,7 @@ function Systems() {
               rel="noreferrer"
               className="clearance-card"
             >
-              <span className="clearance-tag">CLEARANCE</span>
+              <span className="clearance-tag">CERTIFICATION</span>
               <h4>{cert.title}</h4>
               <p className="clearance-meta">
                 {cert.issuer} · {cert.date}

@@ -20,7 +20,7 @@ import {
 export const profile = {
   name: 'Neo Monserrat',
   fullName: 'Antonio Enrique Monserrat',
-  callsign: 'CMDR · NEO',
+  callsign: 'NEO MONSERRAT',
   role: 'Computer Science Student & Software Engineer',
   discipline: 'BS Computer Science · Software Technology',
   affiliation: 'De La Salle University',
@@ -41,10 +41,10 @@ export const profile = {
  * experience data: CS student at DLSU, VRXE internship,
  * and a build history spanning web, desktop, and machine learning.            */
 export const about = {
-  label: 'Mission Briefing',
-  heading: 'Charting a course through software',
+  label: 'About',
+  heading: 'About me',
   lead:
-    "I'm Neo — a Computer Science student at De La Salle University specializing in Software Technology, currently logging flight hours as an intern at VRXE.",
+    "I'm Neo — a Computer Science student at De La Salle University specializing in Software Technology, currently interning at VRXE.",
   paragraphs: [
     'My work spans web platforms, machine learning, and software systems. I care about software that is thoughtful, well-built, and genuinely useful — from clean interfaces down to the reliability of the systems underneath.',
     'My projects tend to be practical: tools people can actually use, systems that hold up under real conditions.'
@@ -57,46 +57,45 @@ export const about = {
 
 /* ── Navigation (each section = a waypoint) ──────────────────────────────── */
 export const navItems = [
-  { id: 'launch',    label: 'Launch',     glyph: '◐' },
-  { id: 'briefing',  label: 'Briefing',   glyph: '◇' },
-  { id: 'systems',   label: 'Systems',    glyph: '⬡' },
-  { id: 'missions',  label: 'Missions',   glyph: '✦' },
-  { id: 'transmit',  label: 'Transmit',   glyph: '◈' }
+  { id: 'launch',    label: 'Home',      glyph: '◐' },
+  { id: 'briefing',  label: 'About',     glyph: '◇' },
+  { id: 'systems',   label: 'Skills',    glyph: '⬡' },
+  { id: 'missions',  label: 'Projects',  glyph: '✦' },
+  { id: 'transmit',  label: 'Contact',   glyph: '◈' }
 ];
 
 /* ── Flight log (Experience) ─────────────────────────────────────────────── */
 export const flightLog = {
-  label: 'Flight Log',
-  heading: 'Trajectory so far',
+  label: 'Experience',
+  heading: 'Experience',
   entries: experienceItems
 };
 
 /* ── Ship systems (Skills) ───────────────────────────────────────────────── */
 export const systems = {
-  label: 'Systems & Capabilities',
-  heading: 'Onboard systems',
-  lead: 'Core modules powering every mission — calibrated, tested, flight-ready.',
-  // Reframe each tech group as a ship subsystem while keeping the real tools.
+  label: 'Skills',
+  heading: 'Skills & tools',
+  lead: '',
   modules: [
-    { code: 'CORE-01', system: 'Propulsion Core', group: techGroups[0] }, // Programming
-    { code: 'NAV-02',  system: 'Navigation Array', group: techGroups[1] }  // Tools & Platforms
+    { code: '01', system: 'Languages & Frameworks', group: techGroups[0] }, // Programming
+    { code: '02', system: 'Tools & Platforms',      group: techGroups[1] }  // Tools & Platforms
   ],
-  certifications // shown as "clearances"
+  certifications
 };
 
 /* ── Star charts (Projects) ──────────────────────────────────────────────── */
 export const missions = {
-  label: 'Mission Log',
-  heading: 'Star charts & destinations',
-  lead: 'Each project is a logged expedition — coordinates lead to live repos and demos.',
+  label: 'Projects',
+  heading: 'Projects',
+  lead: '',
   clusters: [
     {
-      cluster: 'Deep-Space Missions',
-      note: 'Academic & research expeditions',
+      cluster: 'Academic & Research',
+      note: 'University and research work',
       destinations: academicProjects
     },
     {
-      cluster: 'Solo Expeditions',
+      cluster: 'Personal Projects',
       note: 'Personal builds & experiments',
       destinations: personalProjects
     }
@@ -105,15 +104,15 @@ export const missions = {
 
 /* ── Transmission (Contact) ──────────────────────────────────────────────── */
 export const transmission = {
-  label: 'Open Channel',
-  heading: 'Send a transmission',
-  lead: 'Open to opportunities, collaborations, or just a good conversation. Signal is open.',
+  label: 'Contact',
+  heading: 'Get in touch',
+  lead: 'Open to opportunities, collaborations, or just a good conversation.',
   channels: contactMethods,
   primaryEmail: 'neo.monserrat@gmail.com'
 };
 
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 export const footer = {
-  sign: 'Transmission ends.',
+  sign: 'Thanks for visiting.',
   meta: 'BS Computer Science · Software Technology'
 };
