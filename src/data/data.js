@@ -103,12 +103,12 @@ export const personalProjects = [
     image: '/assets/projects/Personal-Portfolio Preview.png'
   },
   {
-    title: 'Personal Website',
+    title: 'Neo.Dev',
     meta: 'HTML · CSS · JavaScript',
     summary:
-      'Personal website showcasing my background, interests, projects, and contact details.',
-    link: 'https://github.com/Nmsrt/Personal-Website',
-    image: '/assets/projects/Personal-Website Preview.png'
+      'Retro/vaporwave personal site with a pixel aesthetic, dark/light mode, shooting-stars canvas, live weather, and pages for gaming, desk setup, instruments, and travel.',
+    link: 'https://github.com/Nmsrt/Neo.Web',
+    image: '/assets/projects/Neo.Dev Preview.png'
   },
   {
     title: 'POS Desktop App',
@@ -140,6 +140,29 @@ export const personalProjects = [
     summary: 'A simple app for tracking personal expenses and managing budgets.',
     link: 'https://github.com/Nmsrt/Personal-Budget-Tracker-App',
     image: '/assets/projects/Personal-Budget-Tracker Preview.png'
+  },
+  {
+    title: 'Roby Portfolio Website',
+    meta: 'Next.js · React · TypeScript',
+    summary:
+      'Personal portfolio website built for a friend, showcasing their background, work, and contact details.',
+    image: '/assets/projects/Roby Portfolio Website Preview.png'
+  },
+  {
+    title: 'Company Repair Ticket System',
+    meta: 'React · Vite · Tailwind · Supabase · Deno',
+    summary:
+      'Full-stack repair ticket platform handling the complete job lifecycle (client submission, technician diagnosis, pricing, and payment) with staff dashboards, real-time updates, web push notifications, and offline PWA support.',
+    link: 'https://github.com/vrxe0274/company-repair-ticket-system',
+    image: '/assets/projects/Company-Repair-Ticket-System Preview.png'
+  },
+  {
+    title: 'Company Suite',
+    meta: 'HTML · CSS · JavaScript · PWA',
+    summary:
+      'A zero-dependency static PWA combining a Quotation Maker and Receipt Maker into one app, with a shared launcher, persistent navigation switcher, and offline service-worker support.',
+    link: 'https://github.com/vrxe0274/company-suite',
+    image: '/assets/projects/Company-Suite Preview.png'
   }
 ];
 

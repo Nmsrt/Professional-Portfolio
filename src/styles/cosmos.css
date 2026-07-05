@@ -31,7 +31,7 @@
 
   /* Text (warm off-whites + warm grey) */
   --text:      #e8e2d4;
-  --muted:     #9a9685;
+  --muted:     #b7b3a2;
   --white:     #fbf7ee;
 
   --display: 'Chakra Petch', system-ui, sans-serif;
@@ -82,6 +82,8 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Inherited legibility halo — lifts all text off the noisy starfield. */
+  text-shadow: 0 1px 3px rgba(5, 6, 13, 0.6);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -116,7 +118,7 @@ img { display: block; max-width: 100%; }
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(120% 90% at 50% 35%, transparent 45%, rgba(5, 6, 13, 0.58) 100%),
+    radial-gradient(120% 90% at 50% 35%, rgba(5, 6, 13, 0.34) 0%, rgba(5, 6, 13, 0.5) 55%, rgba(5, 6, 13, 0.74) 100%),
     linear-gradient(180deg, rgba(5, 6, 13, 0.5) 0%, transparent 18%, transparent 82%, rgba(5, 6, 13, 0.72) 100%);
 }
 
@@ -199,6 +201,7 @@ main,
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
               background var(--dur) var(--ease), border-color var(--dur) var(--ease);
   white-space: nowrap;
+  text-shadow: none;
 }
 .btn span { transition: transform var(--dur) var(--ease); }
 .btn:hover span { transform: translateX(3px); }
