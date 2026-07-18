@@ -1,11 +1,11 @@
 export const experienceItems = [
   {
     year: '2026',
-    title: 'Undergoing Internship',
+    title: 'Software Development Internship',
     company: 'VRXE',
     location: 'Quezon City, Philippines',
     text:
-      'Currently completing my internship at VRXE, contributing to VR and technology-related projects while gaining hands-on experience in software development, problem-solving, team collaboration, and real-world engineering workflows.'
+      'Completed my internship at VRXE, contributing to VR and technology-related projects while gaining hands-on experience in software development, problem-solving, team collaboration, and real-world engineering workflows.'
   },
   {
     year: '2024–2026',

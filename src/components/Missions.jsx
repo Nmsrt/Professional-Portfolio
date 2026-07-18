@@ -3,7 +3,7 @@ import { missions } from '../data/content';
 import useReducedMotion from '../hooks/useReducedMotion';
 
 /* A single destination card with pointer-driven tilt + spotlight glow. */
-function MissionCard({ dest, index, tilt }) {
+function MissionCard({ dest, tilt }) {
   const ref = useRef(null);
 
   const handleMove = (e) => {
@@ -34,7 +34,6 @@ function MissionCard({ dest, index, tilt }) {
       onMouseMove={handleMove}
       onMouseLeave={reset}
     >
-      <span className="mission-index">{String(index + 1).padStart(2, '0')}</span>
       <div className="mission-thumb">
         <img src={dest.image} alt={`${dest.title} preview`} loading="lazy" />
         <span className="mission-thumb-glow" aria-hidden="true" />
@@ -58,9 +57,10 @@ function Missions() {
   return (
     <section id="missions" className="section missions">
       <div className="shell">
+        <div className="section-panel">
         <div className="section-head">
           <p className="section-label" data-reveal>
-            <span className="label-glyph">✦</span> {missions.label}
+            {missions.label}
           </p>
           <h2 className="section-heading" data-reveal>
             {missions.heading}
@@ -80,12 +80,13 @@ function Missions() {
             </div>
 
             <div className="mission-grid" data-reveal-group>
-              {cluster.destinations.map((dest, i) => (
-                <MissionCard key={dest.title} dest={dest} index={i} tilt={!reduced} />
+              {cluster.destinations.map((dest) => (
+                <MissionCard key={dest.title} dest={dest} tilt={!reduced} />
               ))}
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

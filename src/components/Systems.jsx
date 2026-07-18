@@ -6,9 +6,10 @@ function Systems() {
   return (
     <section id="systems" className="section systems">
       <div className="shell">
+        <div className="section-panel">
         <div className="section-head">
           <p className="section-label" data-reveal>
-            <span className="label-glyph">⬡</span> {systems.label}
+            {systems.label}
           </p>
           <h2 className="section-heading" data-reveal>
             {systems.heading}
@@ -23,14 +24,7 @@ function Systems() {
         <div className="modules" data-reveal-group>
           {systems.modules.map((mod) => (
             <article key={mod.code} className="module-card">
-              <header className="module-head">
-                <span className="module-code">{mod.code}</span>
-                <span className="module-status">
-                  <span className="status-led" /> ACTIVE
-                </span>
-              </header>
               <h3 className="module-name">{mod.system}</h3>
-              <p className="module-sub">{mod.group.title}</p>
 
               <ul className="chip-grid">
                 {mod.group.items.map((item) => (
@@ -68,6 +62,7 @@ function Systems() {
               <span className="clearance-open">View credential ↗</span>
             </a>
           ))}
+        </div>
         </div>
       </div>
     </section>

@@ -10,8 +10,8 @@ function Navbar({ activeId }) {
             <img src={profile.brand} alt="" aria-hidden="true" />
           </span>
           <span className="hud-brand-text">
-            <strong>NEO</strong>
-            <small>MONSERRAT</small>
+            <strong>Neo Monserrat</strong>
+            <small>Portfolio</small>
           </span>
         </a>
 
@@ -23,16 +23,13 @@ function Navbar({ activeId }) {
               className={`hud-link${activeId === item.id ? ' is-active' : ''}`}
               aria-current={activeId === item.id ? 'true' : undefined}
             >
-              <span className="hud-link-glyph" aria-hidden="true">
-                {item.glyph}
-              </span>
-              <span className="hud-link-label">{item.label}</span>
+              {item.label}
             </a>
           ))}
         </nav>
 
-        <a href="#transmit" className="hud-cta">
-          Contact <span aria-hidden="true">↗</span>
+        <a href={profile.resumes[0].href} download className="hud-cta">
+          Resume <span aria-hidden="true">↓</span>
         </a>
       </header>
 

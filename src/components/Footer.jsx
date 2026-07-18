@@ -4,10 +4,7 @@ function Footer({ year }) {
   return (
     <footer className="site-footer">
       <div className="shell footer-inner">
-        <div className="footer-sign">
-          <span className="footer-led" aria-hidden="true" />
-          <strong>{footer.sign}</strong>
-        </div>
+        <div className="footer-sign">{footer.sign}</div>
 
         <div className="footer-id">
           <span className="footer-name">{profile.name}</span>

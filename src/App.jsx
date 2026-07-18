@@ -8,7 +8,7 @@ import { navItems } from './data/content';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
+import About, { Experience } from './components/About';
 import Systems from './components/Systems';
 import Missions from './components/Missions';
 import Transmit from './components/Transmit';
@@ -44,6 +44,14 @@ export default function App() {
     };
   }, [reducedMotion]);
 
+  /* Deep links: the browser can't jump to #hash anchors that don't exist until
+     React mounts, so restore that behavior manually. */
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    document.getElementById(id)?.scrollIntoView();
+  }, []);
+
   return (
     <div className="cosmos" ref={rootRef}>
       {/* Fixed 3D background */}
@@ -56,6 +64,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Experience />
         <Systems />
         <Missions />
         <Transmit />

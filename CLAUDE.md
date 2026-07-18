@@ -38,9 +38,10 @@ Personal portfolio for **Neo Monserrat** (Antonio Enrique Monserrat). Space-expl
 - `src/hooks/useActiveSection.js` — tracks scroll position to highlight active nav item.
 
 ### Styling
-- `src/styles/cosmos.css` — single stylesheet; deep-space theme. Design tokens in `:root`.
-- Fonts: `Chakra Petch` (display), `Sora` (body), `Space Mono` (mono)
-- Color tokens: `--blue #2f6bff`, `--electric #38bdf8`, `--cyan #22d3ee`, `--violet #8b5cf6`, `--gold #f5a524`, `--warm #ff7a33`
+- `src/styles/cosmos.css` — single stylesheet; "Observatory" theme: quiet premium deep-space editorial. Design tokens in `:root`.
+- Fonts: `Fraunces` (serif display), `Hanken Grotesk` (body), `Space Mono` (small meta labels only)
+- Color tokens: `--bg #06080f` (ink navy), `--accent #d6ad60` (muted gold, single accent), `--text #dfe4ee`, hairline borders via `--line`/`--line-2`
+- No glows/LEDs/scanlines — professional restraint; hairlines + soft neutral shadows only
 - Max width: `--shell: 1240px`
 
 ### Assets
@@ -84,7 +85,7 @@ Section → content object mapping:
 
 - **Name:** Antonio Enrique Monserrat ("Neo")
 - **Role:** BS Computer Science · Software Technology student at De La Salle University (Manila, PH)
-- **Current:** Internship at VRXE (Quezon City, PH) — VR/tech projects
+- **Experience:** Completed internship at VRXE (Quezon City, PH, 2026) — VR/tech projects
 - **Thesis:** Educational XR software for musical improvisation (Unity, DLSU HXIL lab, 2024–2026)
 - **Skills:** C, C++, C#, Python, JavaScript, SQL · React, Node.js, .NET · Git, Figma, Android Studio, Meta Quest SDK, Unity
 - **Certs:** QE360 Agile Testing (Oct 2025)

@@ -25,14 +25,15 @@ export const profile = {
   discipline: 'BS Computer Science · Software Technology',
   affiliation: 'De La Salle University',
   tagline: 'Building thoughtful software across web, systems, and machine learning.',
-  // Coordinates are decorative HUD flavor (Manila, PH) — not used for anything real.
-  coordinates: '14.5995° N · 120.9842° E',
+  location: 'Manila, Philippines',
+  availability: 'Open to opportunities',
+  meta: 'BS Computer Science @ De La Salle University',
   brand: '/assets/Brand.png',
   portrait: '/assets/profile-illustration.png',
   avatar: '/assets/profile.png',
   resumes: [
-    { label: 'ATS Manifest', href: '/assets/AntonioMonserrat_CV_ATS.pdf' },
-    { label: 'Designed Manifest', href: '/assets/AntonioMonserrat_CV_Designed.pdf' }
+    { label: 'Resume — ATS friendly', href: '/assets/AntonioMonserrat_CV_ATS.pdf' },
+    { label: 'Resume — Designed', href: '/assets/AntonioMonserrat_CV_Designed.pdf' }
   ]
 };
 
@@ -44,24 +45,26 @@ export const about = {
   label: 'About',
   heading: 'About me',
   lead:
-    "I'm Neo — a Computer Science student at De La Salle University specializing in Software Technology, currently interning at VRXE.",
+    "I'm Neo — a Computer Science student at De La Salle University specializing in Software Technology.",
   paragraphs: [
     'My work spans web platforms, machine learning, and software systems. I care about software that is thoughtful, well-built, and genuinely useful — from clean interfaces down to the reliability of the systems underneath.',
     'My projects tend to be practical: tools people can actually use, systems that hold up under real conditions.'
   ],
   stats: [
-    { value: '2021', label: 'Active since' },
-    { value: 'CS', label: 'Discipline' }
+    { value: '14', label: 'Projects built' },
+    { value: '6', label: 'Languages' },
+    { value: '5+', label: 'Years building' }
   ]
 };
 
 /* ── Navigation (each section = a waypoint) ──────────────────────────────── */
 export const navItems = [
-  { id: 'launch',    label: 'Home',      glyph: '◐' },
-  { id: 'briefing',  label: 'About',     glyph: '◇' },
-  { id: 'systems',   label: 'Skills',    glyph: '⬡' },
-  { id: 'missions',  label: 'Projects',  glyph: '✦' },
-  { id: 'transmit',  label: 'Contact',   glyph: '◈' }
+  { id: 'launch',     label: 'Home',       glyph: '◐' },
+  { id: 'briefing',   label: 'About',      glyph: '◇' },
+  { id: 'experience', label: 'Experience', glyph: '✧' },
+  { id: 'systems',    label: 'Skills',     glyph: '⬡' },
+  { id: 'missions',   label: 'Projects',   glyph: '✦' },
+  { id: 'transmit',   label: 'Contact',    glyph: '◈' }
 ];
 
 /* ── Flight log (Experience) ─────────────────────────────────────────────── */
